@@ -47,7 +47,7 @@ with ui.left_drawer(top_corner = True, bottom_corner = True).style('background-c
 
     with ui.row().classes('items-center'): # título
         ui.image('icons/ball.png').classes('w-10')
-        ui.label('Football Data').classes('text-xl font-bold')
+        ui.label('Football Charts').classes('text-xl font-bold')
 
     ui.label('GENERAL').classes('text-[#616161] text-xs font-[500]')
 
