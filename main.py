@@ -1,5 +1,6 @@
 from nicegui import app, ui
 from pages import about, position_history, team_trajectory, season_standings, average_stats, promoted_teams, position_frequency, promotion_frequency, relegation_frequency
+import os
 
 app.add_static_files('/icons', 'icons')
 
@@ -91,4 +92,5 @@ with ui.left_drawer(top_corner = True, bottom_corner = True).style('background-c
 with ui.column().style('flex-grow: 1; padding: 2em').classes('w-full items-center') as content: # contenedor central donde se carga cada vista
     about.render()  # vista inicial
 
-ui.run(title = 'Football Charts', favicon = 'icons/ball.png', on_air = 'EJsWge0eplJ1AHbh')
+ui.run(title = 'Football Charts', favicon = 'icons/ball.png', reload = 'FLY_ALLOC_ID' not in os.environ)
+# on_air = 'EJsWge0eplJ1AHbh'
