@@ -32,6 +32,10 @@ tables = ['Season Standings', 'Position History', 'Team Trajectory', 'Average St
 pie_charts = ['Position Frequency']
 bar_charts = ['Promotion Frequency', 'Relegation Frequency']
 
+tables.sort()
+pie_charts.sort()
+bar_charts.sort()
+
 def change_page(page):
     content.clear()
     with content:
@@ -87,4 +91,4 @@ with ui.left_drawer(top_corner = True, bottom_corner = True).style('background-c
 with ui.column().style('flex-grow: 1; padding: 2em').classes('w-full items-center') as content: # contenedor central donde se carga cada vista
     about.render()  # vista inicial
 
-ui.run(title = 'Football Data', favicon = 'icons/ball.png')
+ui.run(title = 'Football Charts', favicon = 'icons/ball.png', on_air = 'EJsWge0eplJ1AHbh')

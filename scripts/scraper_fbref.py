@@ -3,12 +3,6 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 
-'''
-
-ME HE QUEDADO POR LA TEMPORADA 20/21 (SIN INCLUIR)
-
-'''
-
 def get_table(competition, year): # el año 2000 corresponde a la temporada 00/01, y así con todos
     season_short = f"{str(year)[2:]}/{str(year+1)[2:]}" # 2000 -> 00/01
     season = f"{str(year)}-{str(year+1)}" # 2000 -> 2000-2001
@@ -37,6 +31,12 @@ def get_table(competition, year): # el año 2000 corresponde a la temporada 00/0
         cols = rows[i].find_all("td")
         position = i+1
         team = cols[0].text.strip()
+        if team == "La Coruña": # nombres extraños que pone FBref
+            team == "Deportivo"
+        if team == "Racing Sant":
+            team = "Racing"
+        if team == "Paris S-G":
+            team = "PSG"
         matches = int(cols[1].text.strip())
         wins = int(cols[2].text.strip())
         draws = int(cols[3].text.strip())

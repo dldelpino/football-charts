@@ -21,7 +21,7 @@ def render():
         table.add_slot('body-cell-Team', f'''
         <q-td key="Team" :props="props">
             <div class="row items-center">
-                <img :src="`/icons/teams/{competition}/${{encodeURIComponent(props.value)}}.png`" class="w-4 mr-2"/>{{{{props.value}}}}
+                <img :src="`https://raw.githubusercontent.com/dldelpino/football-charts/refs/heads/main/icons/teams/{competition}/${{encodeURIComponent(props.value)}}.png`" class="w-4 mr-2"/>{{{{props.value}}}}
             </div>   
         </q-td>
         ''')
@@ -45,28 +45,3 @@ def render():
 
     table = ui.table(columns = [], rows = [])
     table.visible = False
-
-# competition = 'Ligue 1'
-# season = '18/19'
-# path = f"data/{competition.lower().replace(" ", "_")}.csv"
-# df = pd.read_csv(path)
-# df = df[df["Season"] == season]
-# df['PPM'] = df['Points']/df['MP']
-
-# cols = df.columns.to_list()
-# cols = cols[0:3] + [cols[-1]] + cols[3:-1]
-# df = df[cols] # reordenar las columnas
-# df = df.sort_values(by = "PPM", ascending = False)
-
-# cols = []
-# for col in df.columns:
-#     if col == "Team":
-#         cols.append({'name': col, 'label': col, 'field': col, 'sortable': True, 'align': 'left'})
-#     elif col == "Points" and competition != "Ligue 1":
-#         cols.append({'name': col, 'label': col, 'field': col, 'sortable': True, 'style': 'font-weight: bold'})
-#     elif col == "PPM":
-#         cols.append({'name': col, 'label': col, 'field': col, 'sortable': True, 'style': 'font-weight: bold'})
-#     else:
-#         cols.append({'name': col, 'label': col, 'field': col, 'sortable': True})
-
-# print(df)

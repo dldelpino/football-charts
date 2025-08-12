@@ -28,15 +28,15 @@ def render():
                             relegated_teams[team] += 1
             else:
                 if competition == "LaLiga":
-                    teams = ["CD Leganés", "UD Las Palmas", "Real Valladolid"]
+                    teams = ["Leganés", "Las Palmas", "Valladolid"]
                 elif competition == "Premier League":
-                    teams = ["Leicester City", "Ipswich", "Southampton"]
+                    teams = ["Leicester City", "Ipswich Town", "Southampton"]
                 elif competition == "Serie A":
                     teams = ["Empoli", "Venezia", "Monza"]
                 elif competition == "Bundesliga":
-                    teams = ["Holstein Kiel", "VfL Bochum"]
+                    teams = ["Holstein Kiel", "Bochum"]
                 elif competition == "Ligue 1":
-                    teams = ["Stade Reims", "St-Étienne", "Montpellier"]
+                    teams = ["Reims", "Saint-Étienne", "Montpellier"]
                 for team in teams:
                     if team not in relegated_teams.keys():
                         relegated_teams[team] = 1

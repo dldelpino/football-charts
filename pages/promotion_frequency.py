@@ -18,14 +18,14 @@ def render():
                 season1 = seasons[i]
                 if competition == "LaLiga":
                     promoted_teams = {
-                        "Villarreal CF": 1, 
-                        "UD Las Palmas": 1, 
-                        "CA Osasuna": 1
+                        "Villarreal": 1, 
+                        "Las Palmas": 1, 
+                        "Osasuna": 1
                     } # equipos recién ascendidos en la 00/01
                 elif competition == "Premier League":
                     promoted_teams = {
-                        "Ipswich": 1, 
-                        "Charlton": 1, 
+                        "Ipswich Town": 1, 
+                        "Charlton Ath": 1, 
                         "Manchester City": 1
                     }
                 elif competition == "Serie A":
@@ -36,9 +36,9 @@ def render():
                     }
                 elif competition == "Bundesliga":
                     promoted_teams = {
-                        "Colonia": 1, 
+                        "Köln": 1, 
                         "Energie Cottbus": 1, 
-                        "VfL Bochum": 1
+                        "Bochum": 1
                     }
                 elif competition == "Ligue 1":
                     promoted_teams = {

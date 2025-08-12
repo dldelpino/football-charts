@@ -14,7 +14,7 @@ def render():
             cols = cols[0:3] + [cols[-1]] + cols[3:-1]
             df = df[cols] # reordenar las columnas
             # df = df.sort_values(by = "PPM", ascending = False)
-        df = df.drop(columns = ["Season", "MP"])
+        df = df.drop(columns = ["Season", "MP", "Top Scorer"])
         df = df.groupby("Team").mean().round(4)
         df.columns = ["Avg " + col for col in df.columns]
         df = df.reset_index()

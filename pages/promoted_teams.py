@@ -13,13 +13,13 @@ def render():
             if i == 0:
                 season1 = seasons[0]
                 if competition == "LaLiga":
-                    teams = ["Villarreal CF", "UD Las Palmas", "CA Osasuna"] # equipos recién ascendidos en la 00/01
+                    teams = ["Villarreal", "Las Palmas", "Osasuna"] # equipos recién ascendidos en la 00/01
                 elif competition == "Premier League":
-                    teams = ["Ipswich", "Charlton", "Manchester City"]
+                    teams = ["Ipswich Town", "Charlton Ath", "Manchester City"]
                 elif competition == "Serie A":
                     teams = ["Atalanta", "Vicenza", "Napoli"]
                 elif competition == "Bundesliga":
-                    teams = ["Colonia", "Energie Cottbus", "VfL Bochum"]
+                    teams = ["Köln", "Energie Cottbus", "Bochum"]
                 elif competition == "Ligue 1":
                     teams = ["Lille", "Guingamp", "Toulouse"]
             else:
