@@ -50,7 +50,7 @@ def render():
         for (team, count) in relegated_teams:
             data.append(
                 {
-                    'name': f'<div class="flex no-wrap gap-2 items-center">{team}<img src="/icons/teams/{competition}/{team}.png" class="w-4"></div>',
+                    'name': f'<div class="flex no-wrap gap-2 items-center">{team}<img src="https://raw.githubusercontent.com/dldelpino/football-charts/refs/heads/main/icons/teams/{competition}/{team}.png" class="w-4"></div>',
                     'y': count,
                     'color': f'hsl(120, 100%, {(1-count/(n+1))*100}%)'
                 }

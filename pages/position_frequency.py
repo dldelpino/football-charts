@@ -52,7 +52,7 @@ def render():
                     'dataLabels': {
                         'enabled': True,
                         'useHTML': True,
-                        'format': (f'<div class="flex no-wrap gap-2 items-center"><img src="/icons/teams/{competition}/{{point.name}}.png" class="w-4">{{point.name}} ({{point.y}}) &#8203 &#8203 &#8203 &#8203 &#8203</div>') # &#8203 añade espacio en blanco
+                        'format': (f'<div class="flex no-wrap gap-2 items-center"><img src="https://raw.githubusercontent.com/dldelpino/football-charts/refs/heads/main/icons/teams/{competition}/{{point.name}}.png" class="w-4">{{point.name}} ({{point.y}}) &#8203 &#8203 &#8203 &#8203 &#8203</div>') # &#8203 añade espacio en blanco
                     }
                 }
             },

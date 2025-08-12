@@ -43,7 +43,7 @@ def render():
         table.add_slot('body-cell-Team', f'''
         <q-td key="Team" :props="props">
             <div class="row items-center">
-                <img :src="`/icons/teams/{competition}/${{encodeURIComponent(props.value)}}.png`" class="w-4 mr-2"/>{{{{props.value}}}}
+                <img :src="`https://raw.githubusercontent.com/dldelpino/football-charts/refs/heads/main/icons/teams/{competition}/${{encodeURIComponent(props.value)}}.png`" class="w-4 mr-2"/>{{{{props.value}}}}
             </div>   
         </q-td>
         ''')
