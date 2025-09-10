@@ -68,7 +68,7 @@ export default defineConfig((/* ctx */) => {
         }, { server: false }]
       ],
 
-      publicPath: '/football-charts/'
+      publicPath: './'
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
