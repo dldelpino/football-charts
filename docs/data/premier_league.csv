@@ -1,0 +1,501 @@
+Season,#,Team,Points,MP,W,D,L,GF,GA,GD,Top Scorer,Top Scorer Goals
+00/01,1,Manchester Utd,80,38,24,8,6,79,31,+48,Teddy Sheringham,15
+00/01,2,Arsenal,70,38,20,10,8,63,38,+25,Thierry Henry,17
+00/01,3,Liverpool,69,38,20,9,9,71,39,+32,Michael Owen,16
+00/01,4,Leeds United,68,38,20,8,10,64,43,+21,Mark Viduka,17
+00/01,5,Ipswich Town,66,38,20,6,12,57,42,+15,Marcus Stewart,19
+00/01,6,Chelsea,61,38,17,10,11,68,45,+23,Jimmy Floyd Hasselbaink,23
+00/01,7,Sunderland,57,38,15,12,11,46,41,+5,Kevin Phillips,14
+00/01,8,Aston Villa,54,38,13,15,10,46,43,+3,Dion Dublin,8
+00/01,9,Charlton Ath,52,38,14,10,14,50,57,-7,Jonatan Johansson,11
+00/01,10,Southampton,52,38,14,10,14,40,48,-8,James Beattie,11
+00/01,11,Newcastle Utd,51,38,14,9,15,44,50,-6,Carl Cort,6
+00/01,12,Tottenham,49,38,13,10,15,47,54,-7,Les Ferdinand,10
+00/01,13,Leicester City,48,38,14,6,18,39,51,-12,Ade Akinbiyi,9
+00/01,14,Middlesbrough,42,38,9,15,14,44,44,0,Alen Bokšić,12
+00/01,15,West Ham,42,38,10,12,16,45,50,-5,Frédéric Kanouté,11
+00/01,16,Everton,42,38,11,9,18,45,59,-14,Kevin Campbell,9
+00/01,17,Derby County,42,38,10,12,16,37,59,-22,Malcolm Christie,8
+00/01,18,Manchester City,34,38,8,10,20,41,65,-24,Paulo Wanchope,9
+00/01,19,Coventry City,34,38,8,10,20,36,63,-27,Craig Bellamy,6
+00/01,20,Bradford City,26,38,5,11,22,30,70,-40,Benito Carbone,5
+01/02,1,Arsenal,87,38,26,9,3,79,36,+43,Thierry Henry,24
+01/02,2,Liverpool,80,38,24,8,6,67,30,+37,Michael Owen,19
+01/02,3,Manchester Utd,77,38,24,5,9,87,45,+42,Ruud van Nistelrooy,23
+01/02,4,Newcastle Utd,71,38,21,8,9,74,52,+22,Alan Shearer,23
+01/02,5,Leeds United,66,38,18,12,8,53,37,+16,Robbie Fowler,12
+01/02,6,Chelsea,64,38,17,13,8,66,38,+28,Jimmy Floyd Hasselbaink,23
+01/02,7,West Ham,53,38,15,8,15,48,57,-9,Frédéric Kanouté,11
+01/02,8,Aston Villa,50,38,12,14,12,46,47,-1,Juan Pablo Ángel,12
+01/02,9,Tottenham,50,38,14,8,16,49,53,-4,Gus Poyet,10
+01/02,10,Blackburn,46,38,12,10,16,55,51,+4,Matt Jansen,10
+01/02,11,Southampton,45,38,12,9,17,46,54,-8,Marians Pahars,14
+01/02,12,Middlesbrough,45,38,12,9,17,35,47,-12,Alen Bokšić,8
+01/02,13,Fulham,44,38,10,14,14,36,44,-8,Barry Hayles,8
+01/02,14,Charlton Ath,44,38,10,14,14,38,49,-11,Jason Euell,11
+01/02,15,Everton,43,38,11,10,17,45,57,-12,Duncan Ferguson,6
+01/02,16,Bolton,40,38,9,13,16,44,62,-18,Michael Ricketts,12
+01/02,17,Sunderland,40,38,10,10,18,29,51,-22,Kevin Phillips,11
+01/02,18,Ipswich Town,36,38,9,9,20,41,64,-23,Marcus Bent,9
+01/02,19,Derby County,30,38,8,6,24,33,63,-30,Malcolm Christie,9
+01/02,20,Leicester City,28,38,5,13,20,30,64,-34,Brian Deane,6
+02/03,1,Manchester Utd,83,38,25,8,5,74,34,+40,Ruud van Nistelrooy,25
+02/03,2,Arsenal,78,38,23,9,6,85,42,+43,Thierry Henry,24
+02/03,3,Newcastle Utd,69,38,21,6,11,63,48,+15,Alan Shearer,17
+02/03,4,Chelsea,67,38,19,10,9,68,38,+30,Gianfranco Zola,14
+02/03,5,Liverpool,64,38,18,10,10,61,41,+20,Michael Owen,19
+02/03,6,Blackburn,60,38,16,12,10,52,43,+9,Damien Duff,9
+02/03,7,Everton,59,38,17,8,13,48,49,-1,Tomasz Radzinski,11
+02/03,8,Southampton,52,38,13,13,12,43,46,-3,James Beattie,23
+02/03,9,Manchester City,51,38,15,6,17,47,54,-7,Nicolas Anelka,14
+02/03,10,Tottenham,50,38,14,8,16,51,62,-11,Robbie Keane,13
+02/03,11,Middlesbrough,49,38,13,10,15,48,44,+4,Massimo Maccarone,9
+02/03,12,Charlton Ath,49,38,14,7,17,45,56,-11,Jason Euell,10
+02/03,13,Birmingham City,48,38,13,9,16,41,49,-8,Clinton Morrison,6
+02/03,14,Fulham,48,38,13,9,16,41,50,-9,Steed Malbranque,6
+02/03,15,Leeds United,47,38,14,5,19,58,57,+1,Mark Viduka,20
+02/03,16,Aston Villa,45,38,12,9,17,42,47,-5,Dion Dublin,10
+02/03,17,Bolton,44,38,10,14,14,41,51,-10,Youri Djorkaeff,7
+02/03,18,West Ham,42,38,10,12,16,42,59,-17,Paolo Di Canio,9
+02/03,19,West Brom,26,38,6,8,24,29,65,-36,Danny Dichio,5
+02/03,20,Sunderland,19,38,4,7,27,21,65,-44,Kevin Phillips,6
+03/04,1,Arsenal,90,38,26,12,0,73,26,+47,Thierry Henry,30
+03/04,2,Chelsea,79,38,24,7,7,67,30,+37,Jimmy Floyd Hasselbaink,12
+03/04,3,Manchester Utd,75,38,23,6,9,64,35,+29,Ruud van Nistelrooy,20
+03/04,4,Liverpool,60,38,16,12,10,55,37,+18,Michael Owen,16
+03/04,5,Newcastle Utd,56,38,13,17,8,52,40,+12,Alan Shearer,22
+03/04,6,Aston Villa,56,38,15,11,12,48,44,+4,Juan Pablo Ángel,16
+03/04,7,Charlton Ath,53,38,14,11,13,51,51,0,Jason Euell,10
+03/04,8,Bolton,53,38,14,11,13,48,56,-8,Kevin Davies,9
+03/04,9,Fulham,52,38,14,10,14,52,46,+6,Louis Saha,13
+03/04,10,Birmingham City,50,38,12,14,12,43,48,-5,Mikael Forssell,17
+03/04,11,Middlesbrough,48,38,13,9,16,44,52,-8,Szilárd Németh,9
+03/04,12,Southampton,47,38,12,11,15,44,45,-1,James Beattie,14
+03/04,13,Portsmouth,45,38,12,9,17,47,54,-7,Yakubu Aiyegbeni,16
+03/04,14,Tottenham,45,38,13,6,19,47,57,-10,Robbie Keane,14
+03/04,15,Blackburn,44,38,12,8,18,51,59,-8,Andy Cole,11
+03/04,16,Manchester City,41,38,9,14,15,55,54,+1,Nicolas Anelka,16
+03/04,17,Everton,39,38,9,12,17,45,57,-12,Wayne Rooney,9
+03/04,18,Leicester City,33,38,6,15,17,48,65,-17,Les Ferdinand,12
+03/04,19,Leeds United,33,38,8,9,21,40,79,-39,Mark Viduka,11
+03/04,20,Wolves,33,38,7,12,19,38,77,-39,Henri Camara,7
+04/05,1,Chelsea,95,38,29,8,1,72,15,+57,Frank Lampard,13
+04/05,2,Arsenal,83,38,25,8,5,87,36,+51,Thierry Henry,25
+04/05,3,Manchester Utd,77,38,22,11,5,58,26,+32,Wayne Rooney,11
+04/05,4,Everton,61,38,18,7,13,45,46,-1,Tim Cahill,11
+04/05,5,Liverpool,58,38,17,7,14,52,41,+11,Milan Baroš,9
+04/05,6,Bolton,58,38,16,10,12,49,44,+5,El Hadji Diouf,9
+04/05,7,Middlesbrough,55,38,14,13,11,53,46,+7,Jimmy Floyd Hasselbaink,13
+04/05,8,Manchester City,52,38,13,13,12,47,39,+8,Robbie Fowler,11
+04/05,9,Tottenham,52,38,14,10,14,47,41,+6,Jermain Defoe,13
+04/05,10,Aston Villa,47,38,12,11,15,45,52,-7,Nolberto Solano,8
+04/05,11,Charlton Ath,46,38,12,10,16,42,58,-16,Shaun Bartlett,6
+04/05,12,Birmingham City,45,38,11,12,15,40,46,-6,Emile Heskey,10
+04/05,13,Fulham,44,38,12,8,18,52,60,-8,Andy Cole,12
+04/05,14,Newcastle Utd,44,38,10,14,14,47,57,-10,Craig Bellamy,7
+04/05,15,Blackburn,42,38,9,15,14,32,43,-11,Paul Dickov,9
+04/05,16,Portsmouth,39,38,10,9,19,43,59,-16,Yakubu Aiyegbeni,13
+04/05,17,West Brom,34,38,6,16,16,36,61,-25,Robert Earnshaw,11
+04/05,18,Crystal Palace,33,38,7,12,19,41,62,-21,Andrew Johnson,21
+04/05,19,Norwich City,33,38,7,12,19,42,77,-35,Damien Francis,7
+04/05,20,Southampton,32,38,6,14,18,45,66,-21,Peter Crouch,12
+05/06,1,Chelsea,91,38,29,4,5,72,22,+50,Frank Lampard,16
+05/06,2,Manchester Utd,83,38,25,8,5,72,34,+38,Ruud van Nistelrooy,21
+05/06,3,Liverpool,82,38,25,7,6,57,25,+32,Steven Gerrard,10
+05/06,4,Arsenal,67,38,20,7,11,68,31,+37,Thierry Henry,27
+05/06,5,Tottenham,65,38,18,11,9,53,38,+15,Robbie Keane,16
+05/06,6,Blackburn,63,38,19,6,13,51,42,+9,Craig Bellamy,13
+05/06,7,Newcastle Utd,58,38,17,7,14,47,42,+5,Alan Shearer,10
+05/06,8,Bolton,56,38,15,11,12,49,41,+8,Stelios Giannakopoulos,9
+05/06,9,West Ham,55,38,16,7,15,52,55,-3,Marlon Harewood,14
+05/06,10,Wigan Athletic,51,38,15,6,17,45,52,-7,Henri Camara,12
+05/06,11,Everton,50,38,14,8,16,34,49,-15,James Beattie,10
+05/06,12,Fulham,48,38,14,6,18,48,58,-10,Collins John,11
+05/06,13,Charlton Ath,47,38,13,8,17,41,55,-14,Darren Bent,18
+05/06,14,Middlesbrough,45,38,12,9,17,48,58,-10,Yakubu Aiyegbeni,13
+05/06,15,Manchester City,43,38,13,4,21,43,48,-5,Andy Cole,9
+05/06,16,Aston Villa,42,38,10,12,16,42,55,-13,Milan Baroš,8
+05/06,17,Portsmouth,38,38,10,8,20,37,62,-25,Lomana LuaLua,7
+05/06,18,Birmingham City,34,38,8,10,20,28,50,-22,Jiří Jarošík,5
+05/06,19,West Brom,30,38,7,9,22,31,58,-27,Nathan Ellington,5
+05/06,20,Sunderland,15,38,3,6,29,26,69,-43,Liam Lawrence,3
+06/07,1,Manchester Utd,89,38,28,5,5,83,27,+56,Cristiano Ronaldo,17
+06/07,2,Chelsea,83,38,24,11,3,64,24,+40,Didier Drogba,20
+06/07,3,Liverpool,68,38,20,8,10,57,27,+30,Dirk Kuyt,12
+06/07,4,Arsenal,68,38,19,11,8,63,35,+28,Robin van Persie,11
+06/07,5,Tottenham,60,38,17,9,12,57,54,+3,Dimitar Berbatov,12
+06/07,6,Everton,58,38,15,13,10,52,36,+16,Andrew Johnson,11
+06/07,7,Bolton,56,38,16,8,14,47,52,-5,Nicolas Anelka,11
+06/07,8,Reading,55,38,16,7,15,52,47,+5,Kevin Doyle,13
+06/07,9,Portsmouth,54,38,14,12,12,45,42,+3,Nwankwo Kanu,10
+06/07,10,Blackburn,52,38,15,7,16,52,54,-2,Benni McCarthy,18
+06/07,11,Aston Villa,50,38,11,17,10,43,41,+2,Gabriel Agbonlahor,9
+06/07,12,Middlesbrough,46,38,12,10,16,44,49,-5,Mark Viduka,14
+06/07,13,Newcastle Utd,43,38,11,10,17,38,47,-9,Obafemi Martins,11
+06/07,14,Manchester City,42,38,11,9,18,29,44,-15,Joey Barton,6
+06/07,15,West Ham,41,38,12,5,21,35,59,-24,Bobby Zamora,11
+06/07,16,Fulham,39,38,8,15,15,38,60,-22,Brian McBride,9
+06/07,17,Wigan Athletic,38,38,10,8,20,37,59,-22,Emile Heskey,8
+06/07,18,Sheffield Utd,38,38,10,8,20,32,55,-23,Robert Hulse,8
+06/07,19,Charlton Ath,34,38,8,10,20,34,60,-26,Darren Bent,13
+06/07,20,Watford,28,38,5,13,20,29,59,-30,Hameur Bouazza,5
+07/08,1,Manchester Utd,87,38,27,6,5,80,22,+58,Cristiano Ronaldo,31
+07/08,2,Chelsea,85,38,25,10,3,65,26,+39,Frank Lampard,10
+07/08,3,Arsenal,83,38,24,11,3,74,31,+43,Emmanuel Adebayor,24
+07/08,4,Liverpool,76,38,21,13,4,67,28,+39,Fernando Torres,24
+07/08,5,Everton,65,38,19,8,11,55,33,+22,Yakubu Aiyegbeni,15
+07/08,6,Aston Villa,60,38,16,12,10,71,51,+20,John Carew,13
+07/08,7,Blackburn,58,38,15,13,10,50,48,+2,Roque Santa Cruz,19
+07/08,8,Portsmouth,57,38,16,9,13,48,40,+8,Benjani,12
+07/08,9,Manchester City,55,38,15,10,13,45,53,-8,Elano,8
+07/08,10,West Ham,49,38,13,10,15,42,50,-8,Dean Ashton,10
+07/08,11,Tottenham,46,38,11,13,14,66,61,+5,Dimitar Berbatov,15
+07/08,12,Newcastle Utd,43,38,11,10,17,45,65,-20,Michael Owen,11
+07/08,13,Middlesbrough,42,38,10,12,16,43,53,-10,Stewart Downing,9
+07/08,14,Wigan Athletic,40,38,10,10,18,34,51,-17,Marcus Bent,7
+07/08,15,Sunderland,39,38,11,6,21,36,59,-23,Kenwyne Jones,7
+07/08,16,Bolton,37,38,9,10,19,36,54,-18,Nicolas Anelka,10
+07/08,17,Fulham,36,38,8,12,18,38,60,-22,Clint Dempsey,6
+07/08,18,Reading,36,38,10,6,22,41,66,-25,Dave Kitson,10
+07/08,19,Birmingham City,35,38,8,11,19,46,62,-16,Mikael Forssell,9
+07/08,20,Derby County,11,38,1,8,29,20,89,-69,Kenny Miller,4
+08/09,1,Manchester Utd,90,38,28,6,4,68,24,+44,Cristiano Ronaldo,18
+08/09,2,Liverpool,86,38,25,11,2,77,27,+50,Steven Gerrard,16
+08/09,3,Chelsea,83,38,25,8,5,68,24,+44,Nicolas Anelka,19
+08/09,4,Arsenal,72,38,20,12,6,68,37,+31,Robin van Persie,11
+08/09,5,Everton,63,38,17,12,9,55,37,+18,Marouane Fellaini,8
+08/09,6,Aston Villa,62,38,17,11,10,54,48,+6,Gabriel Agbonlahor,12
+08/09,7,Fulham,53,38,14,11,13,39,34,+5,Andrew Johnson,7
+08/09,8,Tottenham,51,38,14,9,15,45,45,0,Darren Bent,12
+08/09,9,West Ham,51,38,14,9,15,42,45,-3,Carlton Cole,10
+08/09,10,Manchester City,50,38,15,5,18,58,50,+8,Robinho,14
+08/09,11,Wigan Athletic,45,38,12,9,17,34,45,-11,Amr Zaki,10
+08/09,12,Stoke City,45,38,12,9,17,38,55,-17,Ricardo Fuller,11
+08/09,13,Bolton,41,38,11,8,19,41,53,-12,Kevin Davies,12
+08/09,14,Portsmouth,41,38,10,11,17,38,57,-19,Peter Crouch,10
+08/09,15,Blackburn,41,38,10,11,17,40,60,-20,Benni McCarthy,10
+08/09,16,Sunderland,36,38,9,9,20,34,54,-20,Kenwyne Jones,10
+08/09,17,Hull City,35,38,8,11,19,39,64,-25,Geovanni,8
+08/09,18,Newcastle Utd,34,38,7,13,18,40,59,-19,Obafemi Martins,8
+08/09,19,Middlesbrough,32,38,7,11,20,28,57,-29,Tuncay Şanlı,7
+08/09,20,West Brom,32,38,8,8,22,36,67,-31,Chris Brunt,9
+09/10,1,Chelsea,86,38,27,5,6,103,32,+71,Didier Drogba,29
+09/10,2,Manchester Utd,85,38,27,4,7,86,28,+58,Wayne Rooney,26
+09/10,3,Arsenal,75,38,23,6,9,83,41,+42,Cesc Fàbregas,15
+09/10,4,Tottenham,70,38,21,7,10,67,41,+26,Jermain Defoe,18
+09/10,5,Manchester City,67,38,18,13,7,73,45,+28,Carlos Tevez,23
+09/10,6,Aston Villa,64,38,17,13,8,52,39,+13,Gabriel Agbonlahor,13
+09/10,7,Liverpool,63,38,18,9,11,61,35,+26,Fernando Torres,18
+09/10,8,Everton,61,38,16,13,9,60,49,+11,Louis Saha,13
+09/10,9,Birmingham City,50,38,13,11,14,38,47,-9,Cameron Jerome,11
+09/10,10,Blackburn,50,38,13,11,14,41,55,-14,David Dunn,9
+09/10,11,Stoke City,47,38,11,14,13,34,48,-14,Matthew Etherington,5
+09/10,12,Fulham,46,38,12,10,16,39,46,-7,Bobby Zamora,8
+09/10,13,Sunderland,44,38,11,11,16,48,56,-8,Darren Bent,24
+09/10,14,Bolton,39,38,10,9,19,42,67,-25,Ivan Klasnić,8
+09/10,15,Wolves,38,38,9,11,18,32,56,-24,Kevin Doyle,9
+09/10,16,Wigan Athletic,36,38,9,9,20,37,79,-42,Hugo Rodallega,10
+09/10,17,West Ham,35,38,8,11,19,47,66,-19,Carlton Cole,10
+09/10,18,Burnley,30,38,8,6,24,42,82,-40,Steven Fletcher,8
+09/10,19,Hull City,30,38,6,12,20,34,75,-41,Stephen Hunt,6
+09/10,20,Portsmouth,19,38,7,7,24,34,66,-32,Aruna Dindane,8
+10/11,1,Manchester Utd,80,38,23,11,4,78,37,+41,Dimitar Berbatov,20
+10/11,2,Chelsea,71,38,21,8,9,69,33,+36,Florent Malouda,13
+10/11,3,Manchester City,71,38,21,8,9,60,33,+27,Carlos Tevez,20
+10/11,4,Arsenal,68,38,19,11,8,72,43,+29,Robin van Persie,18
+10/11,5,Tottenham,62,38,16,14,8,55,46,+9,Rafael van der Vaart,13
+10/11,6,Liverpool,58,38,17,7,14,59,44,+15,Dirk Kuyt,13
+10/11,7,Everton,54,38,13,15,10,51,45,+6,Tim Cahill,9
+10/11,8,Fulham,49,38,11,16,11,49,43,+6,Clint Dempsey,12
+10/11,9,Aston Villa,48,38,12,12,14,48,59,-11,Darren Bent,9
+10/11,10,Sunderland,47,38,12,11,15,45,56,-11,Asamoah Gyan,10
+10/11,11,West Brom,47,38,12,11,15,56,71,-15,Peter Odemwingie,15
+10/11,12,Newcastle Utd,46,38,11,13,14,56,57,-1,Kevin Nolan,12
+10/11,13,Stoke City,46,38,13,7,18,46,48,-2,Kenwyne Jones,9
+10/11,14,Bolton,46,38,12,10,16,52,56,-4,Johan Elmander,10
+10/11,15,Blackburn,43,38,11,10,17,46,59,-13,Nikola Kalinić,5
+10/11,16,Wigan Athletic,42,38,9,15,14,40,61,-21,Charles N'Zogbia,9
+10/11,17,Wolves,40,38,11,7,20,46,66,-20,Steven Fletcher,10
+10/11,18,Birmingham City,39,38,8,15,15,37,58,-21,Craig Gardner,8
+10/11,19,Blackpool,39,38,10,9,19,55,78,-23,DJ Campbell,13
+10/11,20,West Ham,33,38,7,12,19,43,70,-27,Demba Ba,7
+11/12,1,Manchester City,89,38,28,5,5,93,29,+64,Sergio Agüero,23
+11/12,2,Manchester Utd,89,38,28,5,5,89,33,+56,Wayne Rooney,27
+11/12,3,Arsenal,70,38,21,7,10,74,49,+25,Robin van Persie,30
+11/12,4,Tottenham,69,38,20,9,9,66,41,+25,Emmanuel Adebayor,17
+11/12,5,Newcastle Utd,65,38,19,8,11,56,51,+5,Demba Ba,16
+11/12,6,Chelsea,64,38,18,10,10,65,46,+19,Frank Lampard,11
+11/12,7,Everton,56,38,15,11,12,50,40,+10,Nikica Jelavić,9
+11/12,8,Liverpool,52,38,14,10,14,47,40,+7,Luis Suárez,11
+11/12,9,Fulham,52,38,14,10,14,48,51,-3,Clint Dempsey,17
+11/12,10,West Brom,47,38,13,8,17,45,52,-7,Peter Odemwingie,10
+11/12,11,Swansea City,47,38,12,11,15,44,51,-7,Danny Graham,12
+11/12,12,Norwich City,47,38,12,11,15,52,66,-14,Grant Holt,15
+11/12,13,Sunderland,45,38,11,12,15,45,46,-1,Nicklas Bendtner,8
+11/12,14,Stoke City,45,38,11,12,15,36,53,-17,Peter Crouch,10
+11/12,15,Wigan Athletic,43,38,11,10,17,42,62,-20,Franco Di Santo,7
+11/12,16,Aston Villa,38,38,7,17,14,37,53,-16,Darren Bent,9
+11/12,17,QPR,37,38,10,7,21,43,66,-23,Heiðar Helguson,8
+11/12,18,Bolton,36,38,10,6,22,46,77,-31,Ivan Klasnić,8
+11/12,19,Blackburn,31,38,8,7,23,48,78,-30,Yakubu Aiyegbeni,17
+11/12,20,Wolves,25,38,5,10,23,40,82,-42,Steven Fletcher,12
+12/13,1,Manchester Utd,89,38,28,5,5,86,43,+43,Robin van Persie,26
+12/13,2,Manchester City,78,38,23,9,6,66,34,+32,Edin Džeko,14
+12/13,3,Chelsea,75,38,22,9,7,75,39,+36,Frank Lampard,15
+12/13,4,Arsenal,73,38,21,10,7,72,37,+35,Theo Walcott,14
+12/13,5,Tottenham,72,38,21,9,8,66,46,+20,Gareth Bale,21
+12/13,6,Everton,63,38,16,15,7,55,40,+15,Marouane Fellaini,11
+12/13,7,Liverpool,61,38,16,13,9,71,43,+28,Luis Suárez,23
+12/13,8,West Brom,49,38,14,7,17,53,57,-4,Romelu Lukaku,17
+12/13,9,Swansea City,46,38,11,13,14,47,51,-4,Michu,18
+12/13,10,West Ham,46,38,12,10,16,45,53,-8,Kevin Nolan,10
+12/13,11,Norwich City,44,38,10,14,14,41,58,-17,Grant Holt,8
+12/13,12,Fulham,43,38,11,10,17,50,60,-10,Dimitar Berbatov,15
+12/13,13,Stoke City,42,38,9,15,14,34,45,-11,Jonathan Walters,8
+12/13,14,Southampton,41,38,9,14,15,49,60,-11,Rickie Lambert,15
+12/13,15,Aston Villa,41,38,10,11,17,47,69,-22,Christian Benteke,19
+12/13,16,Newcastle Utd,41,38,11,8,19,45,68,-23,Demba Ba,13
+12/13,17,Sunderland,39,38,9,12,17,41,54,-13,Steven Fletcher,11
+12/13,18,Wigan Athletic,36,38,9,9,20,47,73,-26,Arouna Koné,11
+12/13,19,Reading,28,38,6,10,22,43,73,-30,Adam le Fondre,12
+12/13,20,QPR,25,38,4,13,21,30,60,-30,Loïc Rémy,6
+13/14,1,Manchester City,86,38,27,5,6,102,37,+65,Yaya Touré,20
+13/14,2,Liverpool,84,38,26,6,6,101,50,+51,Luis Suárez,31
+13/14,3,Chelsea,82,38,25,7,6,71,27,+44,Eden Hazard,14
+13/14,4,Arsenal,79,38,24,7,7,68,41,+27,Olivier Giroud,16
+13/14,5,Everton,72,38,21,9,8,61,39,+22,Romelu Lukaku,15
+13/14,6,Tottenham,69,38,21,6,11,55,51,+4,Emmanuel Adebayor,11
+13/14,7,Manchester Utd,64,38,19,7,12,64,43,+21,Wayne Rooney,17
+13/14,8,Southampton,56,38,15,11,12,54,46,+8,Jay Rodriguez,15
+13/14,9,Stoke City,50,38,13,11,14,45,52,-7,Charlie Adam,7
+13/14,10,Newcastle Utd,49,38,15,4,19,43,59,-16,Loïc Rémy,14
+13/14,11,Crystal Palace,45,38,13,6,19,33,48,-15,Dwight Gayle,7
+13/14,12,Swansea City,42,38,11,9,18,54,54,0,Wilfried Bony,16
+13/14,13,West Ham,40,38,11,7,20,40,51,-11,Kevin Nolan,7
+13/14,14,Sunderland,38,38,10,8,20,41,60,-19,Adam Johnson,8
+13/14,15,Aston Villa,38,38,10,8,20,39,61,-22,Christian Benteke,10
+13/14,16,Hull City,37,38,10,7,21,38,53,-15,Nikica Jelavić,5
+13/14,17,West Brom,36,38,7,15,16,43,59,-16,Saido Berahino,5
+13/14,18,Norwich City,33,38,8,9,21,28,62,-34,Gary Hooper,6
+13/14,19,Fulham,32,38,9,5,24,40,85,-45,Steve Sidwell,7
+13/14,20,Cardiff City,30,38,7,9,22,32,74,-42,Jordon Mutch,7
+14/15,1,Chelsea,87,38,26,9,3,73,32,+41,Diego Costa,20
+14/15,2,Manchester City,79,38,24,7,7,83,38,+45,Sergio Agüero,26
+14/15,3,Arsenal,75,38,22,9,7,71,36,+35,Alexis Sánchez,16
+14/15,4,Manchester Utd,70,38,20,10,8,62,37,+25,Wayne Rooney,12
+14/15,5,Tottenham,64,38,19,7,12,58,53,+5,Harry Kane,21
+14/15,6,Liverpool,62,38,18,8,12,52,48,+4,Steven Gerrard,9
+14/15,7,Southampton,60,38,18,6,14,54,33,+21,Graziano Pellè,12
+14/15,8,Swansea City,56,38,16,8,14,46,49,-3,Wilfried Bony,9
+14/15,9,Stoke City,54,38,15,9,14,48,45,+3,Mame Biram Diouf,11
+14/15,10,Crystal Palace,48,38,13,9,16,47,51,-4,Glenn Murray,7
+14/15,11,Everton,47,38,12,11,15,48,50,-2,Romelu Lukaku,10
+14/15,12,West Ham,47,38,12,11,15,44,47,-3,Diafra Sakho,10
+14/15,13,West Brom,44,38,11,11,16,38,51,-13,Saido Berahino,14
+14/15,14,Leicester City,41,38,11,8,19,46,55,-9,Leonardo Ulloa,11
+14/15,15,Newcastle Utd,39,38,10,9,19,40,63,-23,Papiss Cissé,11
+14/15,16,Sunderland,38,38,7,17,14,31,53,-22,Steven Fletcher,5
+14/15,17,Aston Villa,38,38,10,8,20,31,57,-26,Christian Benteke,13
+14/15,18,Hull City,35,38,8,11,19,33,51,-18,Nikica Jelavić,8
+14/15,19,Burnley,33,38,7,12,19,28,53,-25,Danny Ings,11
+14/15,20,QPR,30,38,8,6,24,42,73,-31,Charlie Austin,18
+15/16,1,Leicester City,81,38,23,12,3,68,36,+32,Jamie Vardy,24
+15/16,2,Arsenal,71,38,20,11,7,65,36,+29,Olivier Giroud,16
+15/16,3,Tottenham,70,38,19,13,6,69,35,+34,Harry Kane,25
+15/16,4,Manchester City,66,38,19,9,10,71,41,+30,Sergio Agüero,24
+15/16,5,Manchester Utd,66,38,19,9,10,49,35,+14,Anthony Martial,11
+15/16,6,Southampton,63,38,18,9,11,59,41,+18,Sadio Mané,11
+15/16,7,West Ham,62,38,16,14,8,65,51,+14,Dimitri Payet,9
+15/16,8,Liverpool,60,38,16,12,10,63,50,+13,Roberto Firmino,10
+15/16,9,Stoke City,51,38,14,9,15,41,55,-14,Marko Arnautović,11
+15/16,10,Chelsea,50,38,12,14,12,59,53,+6,Diego Costa,12
+15/16,11,Everton,47,38,11,14,13,59,55,+4,Romelu Lukaku,18
+15/16,12,Swansea City,47,38,12,11,15,42,52,-10,André Ayew,12
+15/16,13,Watford,45,38,12,9,17,40,50,-10,Odion Ighalo,15
+15/16,14,West Brom,43,38,10,13,15,34,48,-14,Salomón Rondón,9
+15/16,15,Crystal Palace,42,38,11,9,18,39,51,-12,Scott Dann,5
+15/16,16,Bournemouth,42,38,11,9,18,45,67,-22,Joshua King,6
+15/16,17,Sunderland,39,38,9,12,17,48,62,-14,Jermain Defoe,15
+15/16,18,Newcastle Utd,37,38,9,10,19,44,65,-21,Georginio Wijnaldum,11
+15/16,19,Norwich City,34,38,9,7,22,39,67,-28,Dieumerci Mbokani,7
+15/16,20,Aston Villa,17,38,3,8,27,27,76,-49,Jordan Ayew,7
+16/17,1,Chelsea,93,38,30,3,5,85,33,+52,Diego Costa,20
+16/17,2,Tottenham,86,38,26,8,4,86,26,+60,Harry Kane,29
+16/17,3,Manchester City,78,38,23,9,6,80,39,+41,Sergio Agüero,20
+16/17,4,Liverpool,76,38,22,10,6,78,42,+36,Philippe Coutinho,13
+16/17,5,Arsenal,75,38,23,6,9,77,44,+33,Alexis Sánchez,24
+16/17,6,Manchester Utd,69,38,18,15,5,54,29,+25,Zlatan Ibrahimović,17
+16/17,7,Everton,61,38,17,10,11,62,44,+18,Romelu Lukaku,25
+16/17,8,Southampton,46,38,12,10,16,41,48,-7,Nathan Redmond,7
+16/17,9,Bournemouth,46,38,12,10,16,55,67,-12,Joshua King,16
+16/17,10,West Brom,45,38,12,9,17,43,51,-8,Salomón Rondón,8
+16/17,11,West Ham,45,38,12,9,17,47,64,-17,Michail Antonio,9
+16/17,12,Leicester City,44,38,12,8,18,48,63,-15,Jamie Vardy,13
+16/17,13,Stoke City,44,38,11,11,16,41,56,-15,Peter Crouch,7
+16/17,14,Crystal Palace,41,38,12,5,21,50,63,-13,Christian Benteke,15
+16/17,15,Swansea City,41,38,12,5,21,45,70,-25,Fernando Llorente,15
+16/17,16,Burnley,40,38,11,7,20,39,55,-16,Sam Vokes,10
+16/17,17,Watford,40,38,11,7,20,40,68,-28,Troy Deeney,10
+16/17,18,Hull City,34,38,9,7,22,37,80,-43,Robert Snodgrass,7
+16/17,19,Middlesbrough,28,38,5,13,20,27,53,-26,Álvaro Negredo,9
+16/17,20,Sunderland,24,38,6,6,26,29,69,-40,Jermain Defoe,15
+17/18,1,Manchester City,100,38,32,4,2,106,27,+79,Sergio Agüero,21
+17/18,2,Manchester Utd,81,38,25,6,7,68,28,+40,Romelu Lukaku,16
+17/18,3,Tottenham,77,38,23,8,7,74,36,+38,Harry Kane,30
+17/18,4,Liverpool,75,38,21,12,5,84,38,+46,Mohamed Salah,32
+17/18,5,Chelsea,70,38,21,7,10,62,38,+24,Eden Hazard,12
+17/18,6,Arsenal,63,38,19,6,13,74,51,+23,Alexandre Lacazette,14
+17/18,7,Burnley,54,38,14,12,12,36,39,-3,Chris Wood,10
+17/18,8,Everton,49,38,13,10,15,44,58,-14,Wayne Rooney,10
+17/18,9,Leicester City,47,38,12,11,15,56,60,-4,Jamie Vardy,20
+17/18,10,Newcastle Utd,44,38,12,8,18,39,47,-8,Ayoze Pérez,8
+17/18,11,Crystal Palace,44,38,11,11,16,45,55,-10,Luka Milivojević,10
+17/18,12,Bournemouth,44,38,11,11,16,45,61,-16,Joshua King,8
+17/18,13,West Ham,42,38,10,12,16,48,68,-20,Marko Arnautović,11
+17/18,14,Watford,41,38,11,8,19,44,64,-20,Abdoulaye Doucouré,7
+17/18,15,Brighton,40,38,9,13,16,34,54,-20,Glenn Murray,12
+17/18,16,Huddersfield,37,38,9,10,19,28,58,-30,Steve Mounié,7
+17/18,17,Southampton,36,38,7,15,16,37,56,-19,Charlie Austin,7
+17/18,18,Swansea City,33,38,8,9,21,28,56,-28,Jordan Ayew,7
+17/18,19,Stoke City,33,38,7,12,19,35,68,-33,Xherdan Shaqiri,8
+17/18,20,West Brom,31,38,6,13,19,31,56,-25,Jay Rodriguez,7
+18/19,1,Manchester City,98,38,32,2,4,95,23,+72,Sergio Agüero,21
+18/19,2,Liverpool,97,38,30,7,1,89,22,+67,Sadio Mané,22
+18/19,3,Chelsea,72,38,21,9,8,63,39,+24,Eden Hazard,16
+18/19,4,Tottenham,71,38,23,2,13,67,39,+28,Harry Kane,17
+18/19,5,Arsenal,70,38,21,7,10,73,51,+22,Pierre-Emerick Aubameyang,22
+18/19,6,Manchester Utd,66,38,19,9,10,65,54,+11,Paul Pogba,13
+18/19,7,Wolves,57,38,16,9,13,47,46,+1,Raúl Jiménez,13
+18/19,8,Everton,54,38,15,9,14,54,46,+8,Gylfi Sigurðsson,13
+18/19,9,Leicester City,52,38,15,7,16,51,48,+3,Jamie Vardy,18
+18/19,10,West Ham,52,38,15,7,16,52,55,-3,Marko Arnautović,10
+18/19,11,Watford,50,38,14,8,16,52,59,-7,Gerard Deulofeu,10
+18/19,12,Crystal Palace,49,38,14,7,17,51,53,-2,Luka Milivojević,12
+18/19,13,Newcastle Utd,45,38,12,9,17,42,48,-6,Ayoze Pérez,12
+18/19,14,Bournemouth,45,38,13,6,19,56,70,-14,Callum Wilson,14
+18/19,15,Burnley,40,38,11,7,20,45,68,-23,Ashley Barnes,12
+18/19,16,Southampton,39,38,9,12,17,45,65,-20,Danny Ings,7
+18/19,17,Brighton,36,38,9,9,20,35,60,-25,Glenn Murray,13
+18/19,18,Cardiff City,34,38,10,4,24,34,69,-35,Bobby De Cordova-Reid,5
+18/19,19,Fulham,26,38,7,5,26,34,81,-47,Aleksandar Mitrović,11
+18/19,20,Huddersfield,16,38,3,7,28,22,76,-54,Karlan Grant,4
+19/20,1,Liverpool,99,38,32,3,3,85,33,+52,Mohamed Salah,19
+19/20,2,Manchester City,81,38,26,3,9,102,35,+67,Raheem Sterling,20
+19/20,3,Manchester Utd,66,38,18,12,8,66,36,+30,Anthony Martial,17
+19/20,4,Chelsea,66,38,20,6,12,69,54,+15,Tammy Abraham,15
+19/20,5,Leicester City,62,38,18,8,12,67,41,+26,Jamie Vardy,23
+19/20,6,Tottenham,59,38,16,11,11,61,47,+14,Harry Kane,18
+19/20,7,Wolves,59,38,15,14,9,51,40,+11,Raúl Jiménez,17
+19/20,8,Arsenal,56,38,14,14,10,56,48,+8,Pierre-Emerick Aubameyang,22
+19/20,9,Sheffield Utd,54,38,14,12,12,39,39,0,Lys Mousset,6
+19/20,10,Burnley,54,38,15,9,14,43,50,-7,Chris Wood,14
+19/20,11,Southampton,52,38,15,7,16,51,60,-9,Danny Ings,22
+19/20,12,Everton,49,38,13,10,15,44,56,-12,Dominic Calvert-Lewin,13
+19/20,13,Newcastle Utd,44,38,11,11,16,38,58,-20,Jonjo Shelvey,6
+19/20,14,Crystal Palace,43,38,11,10,17,31,50,-19,Jordan Ayew,9
+19/20,15,Brighton,41,38,9,14,15,39,54,-15,Neal Maupay,10
+19/20,16,West Ham,39,38,10,9,19,49,62,-13,Michail Antonio,10
+19/20,17,Aston Villa,35,38,9,8,21,41,67,-26,Jack Grealish,8
+19/20,18,Bournemouth,34,38,9,7,22,40,65,-25,Callum Wilson,8
+19/20,19,Watford,34,38,8,10,20,36,64,-28,Troy Deeney,10
+19/20,20,Norwich City,21,38,5,6,27,26,75,-49,Teemu Pukki,11
+20/21,1,Manchester City,86,38,27,5,6,83,32,+51,İlkay Gündoğan,13
+20/21,2,Manchester Utd,74,38,21,11,6,73,44,+29,Bruno Fernandes,18
+20/21,3,Liverpool,69,38,20,9,9,68,42,+26,Mohamed Salah,22
+20/21,4,Chelsea,67,38,19,10,9,58,36,+22,Jorginho,7
+20/21,5,Leicester City,66,38,20,6,12,68,50,+18,Jamie Vardy,15
+20/21,6,West Ham,65,38,19,8,11,62,47,+15,Michail Antonio,10
+20/21,7,Tottenham,62,38,18,8,12,68,45,+23,Harry Kane,23
+20/21,8,Arsenal,61,38,18,7,13,55,39,+16,Alexandre Lacazette,13
+20/21,9,Leeds United,59,38,18,5,15,62,54,+8,Patrick Bamford,17
+20/21,10,Everton,59,38,17,8,13,47,48,-1,Dominic Calvert-Lewin,16
+20/21,11,Aston Villa,55,38,16,7,15,55,46,+9,Ollie Watkins,14
+20/21,12,Newcastle Utd,45,38,12,9,17,46,62,-16,Callum Wilson,12
+20/21,13,Wolves,45,38,12,9,17,36,52,-16,Rúben Neves,5
+20/21,14,Crystal Palace,44,38,12,8,18,41,66,-25,Wilfried Zaha,11
+20/21,15,Southampton,43,38,12,7,19,47,68,-21,Danny Ings,12
+20/21,16,Brighton,41,38,9,14,15,40,46,-6,Neal Maupay,8
+20/21,17,Burnley,39,38,10,9,19,33,55,-22,Chris Wood,12
+20/21,18,Fulham,28,38,5,13,20,27,53,-26,Bobby De Cordova-Reid,5
+20/21,19,West Brom,26,38,5,11,22,35,76,-41,Matheus Pereira,11
+20/21,20,Sheffield Utd,23,38,7,2,29,20,63,-43,David McGoldrick,8
+21/22,1,Manchester City,93,38,29,6,3,99,26,+73,Kevin De Bruyne,15
+21/22,2,Liverpool,92,38,28,8,2,94,26,+68,Mohamed Salah,23
+21/22,3,Chelsea,74,38,21,11,6,76,33,+43,Mason Mount,11
+21/22,4,Tottenham,71,38,22,5,11,69,40,+29,Son Heung-min,23
+21/22,5,Arsenal,69,38,22,3,13,61,48,+13,Bukayo Saka,11
+21/22,6,Manchester Utd,58,38,16,10,12,57,57,0,Cristiano Ronaldo,18
+21/22,7,West Ham,56,38,16,8,14,60,51,+9,Jarrod Bowen,12
+21/22,8,Leicester City,52,38,14,10,14,62,59,+3,Jamie Vardy,15
+21/22,9,Brighton,51,38,12,15,11,42,44,-2,Leandro Trossard,8
+21/22,10,Wolves,51,38,15,6,17,38,43,-5,Raúl Jiménez,6
+21/22,11,Newcastle Utd,49,38,13,10,15,44,62,-18,Callum Wilson,8
+21/22,12,Crystal Palace,48,38,11,15,12,50,46,+4,Wilfried Zaha,14
+21/22,13,Brentford,46,38,13,7,18,48,56,-8,Ivan Toney,12
+21/22,14,Aston Villa,45,38,13,6,19,52,54,-2,Ollie Watkins,11
+21/22,15,Southampton,40,38,9,13,16,43,67,-24,James Ward-Prowse,10
+21/22,16,Everton,39,38,11,6,21,43,66,-23,Richarlison,10
+21/22,17,Leeds United,38,38,9,11,18,42,79,-37,Raphinha,11
+21/22,18,Burnley,35,38,7,14,17,34,53,-19,Maxwel Cornet,9
+21/22,19,Watford,23,38,6,5,27,34,77,-43,Emmanuel Dennis,10
+21/22,20,Norwich City,22,38,5,7,26,23,84,-61,Teemu Pukki,11
+22/23,1,Manchester City,89,38,28,5,5,94,33,+61,Erling Haaland,36
+22/23,2,Arsenal,84,38,26,6,6,88,43,+45,Martin Ødegaard,15
+22/23,3,Manchester Utd,75,38,23,6,9,58,43,+15,Marcus Rashford,17
+22/23,4,Newcastle Utd,71,38,19,14,5,68,33,+35,Callum Wilson,18
+22/23,5,Liverpool,67,38,19,10,9,75,47,+28,Mohamed Salah,19
+22/23,6,Brighton,62,38,18,8,12,72,53,+19,Alexis Mac Allister,10
+22/23,7,Aston Villa,61,38,18,7,13,51,46,+5,Ollie Watkins,15
+22/23,8,Tottenham,60,38,18,6,14,70,63,+7,Harry Kane,30
+22/23,9,Brentford,59,38,15,14,9,58,46,+12,Ivan Toney,20
+22/23,10,Fulham,52,38,15,7,16,55,53,+2,Aleksandar Mitrović,14
+22/23,11,Crystal Palace,45,38,11,12,15,40,49,-9,Eberechi Eze,10
+22/23,12,Chelsea,44,38,11,11,16,38,47,-9,Kai Havertz,7
+22/23,13,Wolves,41,38,11,8,19,31,58,-27,Rúben Neves,6
+22/23,14,West Ham,40,38,11,7,20,42,55,-13,Saïd Benrahma,6
+22/23,15,Bournemouth,39,38,11,6,21,37,71,-34,Philip Billing,7
+22/23,16,Nott'ham Forest,38,38,9,11,18,38,68,-30,Taiwo Awoniyi,10
+22/23,17,Everton,36,38,8,12,18,34,57,-23,Dwight McNeil,7
+22/23,18,Leicester City,34,38,9,7,22,51,68,-17,Harvey Barnes,13
+22/23,19,Leeds United,31,38,7,10,21,48,78,-30,Rodrigo,13
+22/23,20,Southampton,25,38,6,7,25,36,73,-37,James Ward-Prowse,9
+23/24,1,Manchester City,91,38,28,7,3,96,34,+62,Erling Haaland,27
+23/24,2,Arsenal,89,38,28,5,5,91,29,+62,Bukayo Saka,16
+23/24,3,Liverpool,82,38,24,10,4,86,41,+45,Mohamed Salah,18
+23/24,4,Aston Villa,68,38,20,8,10,76,61,+15,Ollie Watkins,19
+23/24,5,Tottenham,66,38,20,6,12,74,61,+13,Son Heung-min,17
+23/24,6,Chelsea,63,38,18,9,11,77,63,+14,Cole Palmer,22
+23/24,7,Newcastle Utd,60,38,18,6,14,85,62,+23,Alexander Isak,21
+23/24,8,Manchester Utd,60,38,18,6,14,57,58,-1,Rasmus Højlund,10
+23/24,9,West Ham,52,38,14,10,14,60,74,-14,Jarrod Bowen,16
+23/24,10,Crystal Palace,49,38,13,10,15,57,58,-1,Jean-Philippe Mateta,16
+23/24,11,Brighton,48,38,12,12,14,55,62,-7,João Pedro,9
+23/24,12,Bournemouth,48,38,13,9,16,54,67,-13,Dominic Solanke,19
+23/24,13,Fulham,47,38,13,8,17,55,61,-6,Rodrigo Muniz,9
+23/24,14,Wolves,46,38,13,7,18,50,65,-15,Hwang Hee-chan,12
+23/24,15,Everton,40,38,13,9,16,40,51,-11,Abdoulaye Doucouré,7
+23/24,16,Brentford,39,38,10,9,19,56,65,-9,Yoane Wissa,12
+23/24,17,Nott'ham Forest,32,38,9,9,20,49,67,-18,Chris Wood,14
+23/24,18,Luton Town,26,38,6,8,24,52,85,-33,Carlton Morris,11
+23/24,19,Burnley,24,38,5,9,24,41,78,-37,Jacob Bruun Larsen,6
+23/24,20,Sheffield Utd,16,38,3,7,28,35,104,-69,Oliver McBurnie,6
+24/25,1,Liverpool,84,38,25,9,4,86,41,+45,Mohamed Salah,29
+24/25,2,Arsenal,74,38,20,14,4,69,34,+35,Kai Havertz,9
+24/25,3,Manchester City,71,38,21,8,9,72,44,+28,Erling Haaland,22
+24/25,4,Chelsea,69,38,20,9,9,64,43,+21,Cole Palmer,15
+24/25,5,Newcastle Utd,66,38,20,6,12,68,47,+21,Alexander Isak,23
+24/25,6,Aston Villa,66,38,19,9,10,58,51,+7,Ollie Watkins,16
+24/25,7,Nott'ham Forest,65,38,19,8,11,58,46,+12,Chris Wood,20
+24/25,8,Brighton,61,38,16,13,9,66,59,+7,Danny Welbeck,10
+24/25,9,Bournemouth,56,38,15,11,12,58,46,+12,Justin Kluivert,12
+24/25,10,Brentford,56,38,16,8,14,66,57,+9,Bryan Mbeumo,20
+24/25,11,Fulham,54,38,15,9,14,54,54,0,Raúl Jiménez,12
+24/25,12,Crystal Palace,53,38,13,14,11,51,51,0,Jean-Philippe Mateta,14
+24/25,13,Everton,48,38,11,15,12,42,44,-2,Iliman Ndiaye,9
+24/25,14,West Ham,43,38,11,10,17,46,62,-16,Jarrod Bowen,13
+24/25,15,Manchester Utd,42,38,11,9,18,44,54,-10,Bruno Fernandes,8
+24/25,16,Wolves,42,38,12,6,20,54,69,-15,Matheus Cunha,15
+24/25,17,Tottenham,38,38,11,5,22,64,65,-1,Brennan Johnson,11
+24/25,18,Leicester City,25,38,6,7,25,33,80,-47,Jamie Vardy,9
+24/25,19,Ipswich Town,22,38,4,10,24,36,82,-46,Liam Delap,12
+24/25,20,Southampton,12,38,2,6,30,26,86,-60,Paul Onuachu,4
