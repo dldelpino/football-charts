@@ -4,7 +4,8 @@
         <ShowResults @click="loadData"/>
     </div>
     <div class="buttons-container" style="padding-bottom: 30px">
-        <Chart :key="chartKey" :options="chartOptions"></Chart>
+        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="green-10" size="50px" :thickness="10"/>
+        <Chart v-if="!loading" :key="chartKey" :options="chartOptions"></Chart>
     </div>
 </template>
 
@@ -16,6 +17,15 @@ import ShowResults from '../../components/ShowResults.vue'
 import SelectLeague from '../../components/SelectLeague.vue'
 
 const league = ref(null)
+const leaguesCountries = {
+    "LaLiga": "Spain",
+    "Premier League": "England",
+    "Serie A": "Italy",
+    "Bundesliga": "Germany",
+    "Ligue 1": "France"
+}
+
+const chartKey = ref(0)
 const chartOptions = ref({
     title: {
         text: ''
@@ -27,17 +37,11 @@ const chartOptions = ref({
         enabled: false,
     }
 })
-const chartKey = ref(0)
 
-const leaguesCountries = {
-    "LaLiga": "Spain",
-    "Premier League": "England",
-    "Serie A": "Italy",
-    "Bundesliga": "Germany",
-    "Ligue 1": "France"
-}
+const loading = ref(false)
 
 const loadData = async () => {
+    loading.value = true
     if (!league.value) return
     const res = await axios.get("https://football-charts-backend.onrender.com/promotion-frequency", {
         params: {
@@ -56,6 +60,7 @@ const loadData = async () => {
         item.color = `hsl(120, ${(1-item.y/(n+1))*100}%, ${(1-item.y/(n+1))*100}%)`
     })
 
+    loading.value = false
     chartOptions.value = {
         title: {
             text: ''

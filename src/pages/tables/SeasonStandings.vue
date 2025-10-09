@@ -5,7 +5,8 @@
         <ShowResults @click="loadData"/>
     </div>
     <div class="buttons-container" style="padding-bottom: 30px">
-        <q-table class="stats-table" flat bordered v-if="rows.length" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
+        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="green-10" size="50px" :thickness="10"/>
+        <q-table class="stats-table" flat bordered v-if="rows.length && !loading" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
         <template v-slot:body-cell-team="props">
             <q-td :props="props" style="align-items: center" class="row">
             <img
@@ -43,15 +44,19 @@ const columns = ref([
     {name: "goal_difference", field: "goal_difference", label: "GD", sortable: true, style: "width: 70px"}
 ])
 
+const loading = ref(false)
+
 const loadData = async () => {
-  if (!league.value || !season.value) return 
-  const res = await axios.get("https://football-charts-backend.onrender.com/season-standings", {
-    params: {
-      league_name: league.value,
-      season: season.value
-    }
-  })
-  rows.value = res.data
+    loading.value = true
+    if (!league.value || !season.value) return 
+    const res = await axios.get("https://football-charts-backend.onrender.com/season-standings", {
+        params: {
+        league_name: league.value,
+        season: season.value
+        }
+    })
+    loading.value = false
+    rows.value = res.data
 }
 
 </script>

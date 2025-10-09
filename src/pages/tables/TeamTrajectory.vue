@@ -5,7 +5,8 @@
         <ShowResults @click="loadData"/>
     </div>
     <div class="buttons-container" style="padding-bottom: 30px">
-        <q-table class="stats-table" flat bordered v-if="rows.length" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
+        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="green-10" size="50px" :thickness="10"/>
+        <q-table class="stats-table" flat bordered v-if="rows.length && !loading" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
         <template v-slot:body-cell-team="props">
             <q-td :props="props" style="align-items: center" class="row">
             <img
@@ -32,6 +33,8 @@ const team = ref(null)
 const rows = ref([])
 let columns
 
+const loading = ref(false)
+
 const leagueTeams = {
     "LaLiga": [
         'Barcelona', 'Málaga', 'Deportivo', 'Athletic Bilbao', 'Real Madrid', 'Valencia', 'Real Sociedad', 'Racing Santander', 'Zaragoza', 'Espanyol', 'Las Palmas', 'Alavés', 'Mallorca', 'Valladolid', 'Numancia', 'Oviedo', 'Osasuna', 'Celta', 'Villarreal', 'Rayo Vallecano', 'Betis', 'Sevilla', 'Tenerife', 'Atlético Madrid', 'Recreativo', 'Albacete', 'Murcia', 'Levante', 'Getafe', 'Cádiz', 'Gimnàstic', 'Almería', 'Sporting Gijón', 'Xerez', 'Hércules', 'Granada', 'Elche', 'Eibar', 'Córdoba', 'Leganés', 'Girona', 'Huesca'
@@ -55,6 +58,7 @@ const teamOptions = computed(() => {
 })
 
 const loadData = async () => {
+    loading.value = true
     if (!league.value || !team.value) return
     else if (league.value == "Serie A" || league.value == "Ligue 1") {
         columns = ref([
@@ -92,6 +96,7 @@ const loadData = async () => {
             team_name: team.value
         }
     })
+    loading.value = false
     rows.value = res.data
 }
 
