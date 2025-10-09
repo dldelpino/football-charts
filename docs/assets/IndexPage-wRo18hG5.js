@@ -1,1 +1,0 @@
-import{o as e,N as o,G as a}from"./index-CV0CJrC4.js";const l={__name:"IndexPage",setup(c){return e(()=>{fetch("https://football-charts-backend.onrender.com/").then(()=>{console.log("Backend loaded successfully")}).catch(()=>console.warn("Loading backend failed"))}),(n,t)=>(a(),o("div"))}};export{l as default};
