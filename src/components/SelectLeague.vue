@@ -1,5 +1,5 @@
 <template>
-    <q-select outlined rounded :options="leagueOptions" bg-color="white" dense color="primary" style="width: 200px;" />
+    <q-select outlined rounded label="League" :options="leagueOptions" bg-color="white" dense color="secondary" style="width: 200px;" />
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-    <q-select outlined rounded :options="seasons" bg-color="white" dense color="primary" style="width: 100px"/>
+    <q-select outlined rounded :options="seasons" bg-color="white" dense color="secondary" style="width: 104px" label="Season"/> <!-- 104px es la anchura mínima para que quepa el texto en la caja-->
 </template>
 
 <script setup>

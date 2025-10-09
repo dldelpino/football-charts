@@ -1,20 +1,23 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-grey-3">
-    <q-header class="bg-grey-3 header">
-      <div>
-        <div style="font-size: 21px; font-weight: bold;">
-          {{ pageTitle }}
+    <q-page-container>
+        <div class="bg-grey-3 header">
+          <div>
+            <div style="font-size: 21px; font-weight: bold;">
+              {{ pageTitle }}
+            </div>
+            <div style="color: dimgray">
+              {{ pageDescription }}
+            </div>
+          </div>
+          <div class="icons-container">
+            <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+          </div>
         </div>
-        <div style="color: dimgray">
-          {{ pageDescription }}
-        </div>
-      </div>
-      <div class="icons-container">
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-      </div>
-    </q-header>
+        <div class="rule"></div>
+    </q-page-container>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered class="drawer">
+    <q-drawer v-model="leftDrawerOpen" show-if-above class="drawer">
       <q-list>
         <q-item-label header class="drawer-title">
           <q-icon :name="`img:icons/ball-white.png`" class="drawer-title-icon"/>
@@ -23,7 +26,7 @@
         <template v-for="(value, key, index) in sections" :key="index">
         <q-item-label header class="drawer-header">{{ key }}</q-item-label>
           <template v-for="(page, index) in sections[key]" :key="index">
-            <q-btn flat no-caps :class="isActive(page) ? 'active-drawer-button' : 'drawer-button' " :to="'/' + toKebabCase(page)">
+            <q-btn flat no-caps :class="isActive(page) ? 'active-drawer-button' : 'drawer-button' " :to="'/' + toKebabCase(page)" align="left"> <!-- no sé por qué align sale en rojo -->
               <q-icon :name="`img:icons/${toKebabCase(key)}.png`" :class="isActive(page) ? 'active-drawer-icon' : 'drawer-icon' "/>
               {{ page }}
             </q-btn>
@@ -39,6 +42,7 @@
 </template>
 
 <script setup>
+
 import { ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -74,17 +78,26 @@ watchEffect(() => { // se ejecuta cuando cambian route.meta.title o route.meta.d
 
 </script>
 
-<style>
+<style lang="scss">
+
+html {
+  background-color: $grey-3;
+}
 
 .header {
   display: flex;
   color: black;
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 10px;
   justify-content: space-between;
-  border-bottom: 1px solid #c2c2c2;
+}
+
+.rule {
+  margin-left: 20px;
+  margin-right: 20px;
+  border-bottom: 1px solid #c2c2c2
 }
 
 .drawer {
@@ -135,6 +148,7 @@ watchEffect(() => { // se ejecuta cuando cambian route.meta.title o route.meta.d
   margin-left: 15px;
   margin-bottom: 15px;
   color: rgb(220, 220, 220);
+  width: 89%;
 }
 
 .active-drawer-button {
@@ -143,6 +157,7 @@ watchEffect(() => { // se ejecuta cuando cambian route.meta.title o route.meta.d
   margin-left: 15px;
   margin-bottom: 15px;
   color: rgb(150, 220, 150);
+  width: 89%;
 }
 
 .drawer-title {

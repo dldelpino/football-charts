@@ -1,6 +1,6 @@
 <template>
-    <q-btn outline rounded class="bg-white" color="primary" style="font-weight: bold;" label="Show results"/>
-    <!-- el color primary está definido en quasar.variables.scss -->
+    <q-btn outline rounded class="bg-white" color="secondary" style="font-weight: bold;" label="Show results"/>
+    <!-- el color secondary está definido en quasar.variables.scss -->
 </template>
 
 <style>

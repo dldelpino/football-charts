@@ -5,7 +5,7 @@
         <ShowResults @click="loadData"/>
     </div>
     <div class="buttons-container" style="padding-bottom: 30px">
-        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="green-10" size="50px" :thickness="10"/>
+        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="secondary" size="50px" :thickness="10"/>
         <q-table class="stats-table" flat bordered v-if="rows.length && !loading" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
         <template v-slot:body-cell-team="props">
             <q-td :props="props" style="align-items: center" class="row">
@@ -68,6 +68,7 @@ const loadData = async () => {
     justify-content: center;
     gap: 30px;
     margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 .select {
@@ -80,6 +81,7 @@ const loadData = async () => {
 
 .stats-table {
     border-radius: 10px;
+    max-width: 90%;
 }
 
 </style>

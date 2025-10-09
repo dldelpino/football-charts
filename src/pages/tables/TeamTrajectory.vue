@@ -5,7 +5,7 @@
         <ShowResults @click="loadData"/>
     </div>
     <div class="buttons-container" style="padding-bottom: 30px">
-        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="green-10" size="50px" :thickness="10"/>
+        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="secondary" size="50px" :thickness="10"/>
         <q-table class="stats-table" flat bordered v-if="rows.length && !loading" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
         <template v-slot:body-cell-team="props">
             <q-td :props="props" style="align-items: center" class="row">
@@ -100,38 +100,10 @@ const loadData = async () => {
     rows.value = res.data
 }
 
-// function loadData() {
-//     fetch(`data/${league.value.toLowerCase().replace(/\s+/g, "_")}.csv`)
-//         .then(response => response.text())
-//         .then(csvText => {
-//             Papa.parse(csvText, {
-//                 header: true,
-//                 complete: results => {
-//                     teamTrajectory.value = results.data.map(row => ({
-//                         season: row["Season"],
-//                         position: Number(row["#"]),
-//                         team: row["Team"],
-//                         points: Number(row["Points"]),
-//                         mp: row["MP"],
-//                         w: Number(row["W"]),
-//                         d: Number(row["D"]),
-//                         l: Number(row["L"]),
-//                         gf: Number(row["GF"]),
-//                         ga: Number(row["GA"]),
-//                         gd: Number(row["GD"]),
-//                         top_scorer: row["Top Scorer"],
-//                         top_scorer_goals: Number(row["Top Scorer Goals"]),
-//                         logo: `icons/teams/${league.value}/${row["Team"]}.png`
-//                     }))
-//                     rows.value = teamTrajectory.value.filter(row => row.team == team.value).sort((a, b) => b.points - a.points)
-//                 }
-//             })
-//         })
-// }
-
 watch(league, () => { // borra la selección del segundo botón si cambia la del primero
     team.value = null
 }) 
+
 </script>
 
 <style>
@@ -141,6 +113,7 @@ watch(league, () => { // borra la selección del segundo botón si cambia la del
     justify-content: center;
     gap: 30px;
     margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 .select {
@@ -153,6 +126,7 @@ watch(league, () => { // borra la selección del segundo botón si cambia la del
 
 .stats-table {
     border-radius: 10px;
+    max-width: 90%;
 }
 
 </style>

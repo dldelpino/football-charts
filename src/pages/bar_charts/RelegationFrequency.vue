@@ -4,7 +4,7 @@
         <ShowResults @click="loadData"/>
     </div>
     <div class="buttons-container" style="padding-bottom: 30px">
-        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="green-10" size="50px" :thickness="10"/>
+        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="secondary" size="50px" :thickness="10"/>
         <Chart v-if="!loading" :key="chartKey" :options="chartOptions"></Chart>
     </div>
 </template>
@@ -121,6 +121,7 @@ const loadData = async () => {
     gap: 30px;
     margin-top: 30px;
     background-color: inherit;
+    flex-wrap: wrap;
 }
 
 .select {

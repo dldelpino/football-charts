@@ -5,8 +5,10 @@
         <ShowResults @click="loadData"/>
     </div>
     <div class="buttons-container" style="padding-bottom: 30px">
-        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="green-10" size="50px" :thickness="10"/>
-        <Chart v-if="!loading" :key="chartKey" :options="chartOptions"></Chart>
+        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="secondary" size="50px" :thickness="10"/>
+        <div class="chart-container">
+            <Chart v-if="!loading" :key="chartKey" :options="chartOptions"></Chart>
+        </div>
     </div>
 </template>
 
@@ -82,13 +84,13 @@ const loadData = async () => {
         chart: {
             backgroundColor: '#eeeeee',
             type: 'pie',
-            height: 700,
-            width: 1000
+            height: 600,
+            // width: 1000
         },
         colors: colors,
         plotOptions: {
             pie: {
-                size: 500,
+                // size: 500,
                 dataLabels: {
                     enabled: true,
                     useHTML: true,
@@ -141,6 +143,11 @@ watch(position, () => {
     gap: 30px;
     margin-top: 30px;
     background-color: inherit;
+    flex-wrap: wrap;
+}
+
+.chart-container {
+    width: 90%;
 }
 
 .select {

@@ -1,5 +1,5 @@
 <template>
-    <q-select outlined rounded bg-color="white" dense color="primary" style="width: 200px;"/>
+    <q-select outlined rounded bg-color="white" dense color="secondary" style="width: 200px;" label="Team"/>
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-    <q-input outlined rounded type="number" bg-color="white" dense color="primary" style="width: 75px" min="1"/>
+    <q-input outlined rounded type="number" bg-color="white" dense color="secondary" style="width: 75px;" min="1"/>
 </template>
 
 <script setup>
