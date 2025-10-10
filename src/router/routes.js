@@ -6,8 +6,8 @@ const routes = [
       { path: '', 
         component: () => import('pages/IndexPage.vue'),
         meta: {
-          title: '',
-          description: ''
+          title: 'Football Charts',
+          description: '🚨 The first data load may take up to one minute.'
         }
       },
       { 
