@@ -55,8 +55,8 @@ const sections = {
 }
 
 const leftDrawerOpen = ref(false)
-const pageTitle = ref('Select a section')
-const pageDescription = ref('HOLaholaholahoa')
+const pageTitle = ref('')
+const pageDescription = ref('')
 
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value
