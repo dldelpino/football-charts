@@ -4,8 +4,8 @@
         <SelectPosition v-model.number="position" :disable="!league" :max="maxPosition"/>
         <ShowResults @click="loadData"/>
     </div>
-    <div class="buttons-container" style="padding-bottom: 30px">
-        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="secondary" size="50px" :thickness="10"/>
+    <div class="buttons-container" style="padding-bottom: 30px; flex-direction: column; align-items: center;">
+        <q-spinner-puff style="margin-top: 50px;" v-if="loading" color="secondary" size="50px" :thickness="10"/>
         <div class="chart-container">
             <Chart v-if="!loading" :key="chartKey" :options="chartOptions"></Chart>
         </div>
@@ -84,7 +84,7 @@ const loadData = async () => {
         chart: {
             backgroundColor: '#eeeeee',
             type: 'pie',
-            height: 600,
+            height: 500,
             // width: 1000
         },
         colors: colors,
