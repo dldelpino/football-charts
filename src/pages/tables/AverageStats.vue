@@ -3,16 +3,14 @@
         <SelectLeague v-model="league"/>
         <ShowResults @click="loadData"/>
     </div>
-    <div class="buttons-container" style="padding-bottom: 30px">
-        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="secondary" size="50px" :thickness="10"/>
+    <div class="data-container">
+        <LoadingSpinner v-if="loading"/>
+        <LoadingMessage :class="{visible: showMessage}"/>
         <q-table class="stats-table" flat bordered v-if="rows.length && !loading" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
             <template v-slot:body-cell-team="props">
                 <q-td :props="props" style="align-items: center" class="row">
-                <img
-                    :src="props.row.logo"
-                    style="width: 16px; margin-right: 8px"
-                />
-                {{ props.row.team }}
+                    <img :src="props.row.logo" style="width: 16px; margin-right: 8px"/>
+                    {{ props.row.team }}
                 </q-td>
             </template>
         </q-table>
@@ -23,8 +21,11 @@
 
 import { ref } from 'vue'
 import axios from 'axios'
-import ShowResults from '../../components/ShowResults.vue'
+
+import LoadingMessage from 'src/components/LoadingMessage.vue'
+import LoadingSpinner from 'src/components/LoadingSpinner.vue'
 import SelectLeague from '../../components/SelectLeague.vue'
+import ShowResults from '../../components/ShowResults.vue'
 
 const league = ref(null)
 
@@ -32,11 +33,17 @@ const rows = ref([])
 let columns
 
 const loading = ref(false)
+const showMessage = ref(false)
 
 const loadData = async () => {
-    loading.value = true
     if (!league.value) return
-    else if (league.value == "Serie A" || league.value == "Ligue 1") {
+
+    loading.value = true
+    const timeout = setTimeout(() => {
+        showMessage.value = true
+    }, 10000)
+
+    if (league.value == "Serie A" || league.value == "Ligue 1") {
         columns = ref([
             {name: "seasons_played", field: "seasons_played", label: "SP", sortable: true},
             {name: "avg_position", field: "avg_position", label: "Avg #", sortable: true},
@@ -65,14 +72,18 @@ const loadData = async () => {
             {name: "avg_goal_differene", field: "avg_goal_difference", label: "Avg GD", sortable: true, style: "width: 70px"},
         ])
     }
+
     const res = await axios.get("https://football-charts-backend.onrender.com/average-stats", {
         params: {
             league_name: league.value
         }
     })
-    loading.value = false
-    rows.value = res.data
 
+    clearTimeout(timeout)
+    loading.value = false
+    showMessage.value = false
+
+    rows.value = res.data
 }
 
 </script>
@@ -83,12 +94,16 @@ const loadData = async () => {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 40px;
     flex-wrap: wrap;
 }
 
-.select {
-    width: 200px;
+.data-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .stats-table, .stats-table th, .stats-table td {

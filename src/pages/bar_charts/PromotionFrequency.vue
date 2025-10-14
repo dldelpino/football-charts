@@ -3,27 +3,25 @@
         <SelectLeague v-model="league"/>
         <ShowResults @click="loadData"/>
     </div>
-    <div class="buttons-container" style="padding-bottom: 30px">
-        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="secondary" size="50px" :thickness="10"/>
+    <div class="data-container">
+        <LoadingSpinner v-if="loading"/>
+        <LoadingMessage :class="{visible: showMessage}"/>
         <Chart v-if="!loading" :key="chartKey" :options="chartOptions"></Chart>
     </div>
 </template>
 
 <script setup>
+
 import { ref } from 'vue'
-import axios from 'axios'
 import { Chart } from 'highcharts-vue'
-import ShowResults from '../../components/ShowResults.vue'
+import axios from 'axios'
+
+import LoadingMessage from 'src/components/LoadingMessage.vue'
+import LoadingSpinner from 'src/components/LoadingSpinner.vue'
 import SelectLeague from '../../components/SelectLeague.vue'
+import ShowResults from '../../components/ShowResults.vue'
 
 const league = ref(null)
-const leaguesCountries = {
-    "LaLiga": "Spain",
-    "Premier League": "England",
-    "Serie A": "Italy",
-    "Bundesliga": "Germany",
-    "Ligue 1": "France"
-}
 
 const chartKey = ref(0)
 const chartOptions = ref({
@@ -39,28 +37,45 @@ const chartOptions = ref({
 })
 
 const loading = ref(false)
+const showMessage = ref(false)
+
+const leaguesCountries = {
+    "LaLiga": "Spain",
+    "Premier League": "England",
+    "Serie A": "Italy",
+    "Bundesliga": "Germany",
+    "Ligue 1": "France"
+}
 
 const loadData = async () => {
-    loading.value = true
     if (!league.value) return
+
+    loading.value = true
+    const timeout = setTimeout(() => {
+        showMessage.value = true
+    }, 10000)
+
     const res = await axios.get("https://football-charts-backend.onrender.com/promotion-frequency", {
         params: {
             league_name: league.value
         }
     })
+
     const promotionCount = res.data
 
     chartKey.value++
 
     const chartData = Object.entries(promotionCount).sort((a, b) => b[1] - a[1]).map(([name, y]) => ({name, y}))
-
     const n = chartData[0].y
     chartData.forEach(item => {
         item.name = `<div class="row no-wrap items-center" style="font-size: 11px;">${item.name}<img src="https://raw.githubusercontent.com/dldelpino/football-charts/refs/heads/main/public/icons/teams/${leaguesCountries[league.value]}/${item.name}.png" style="width: 16px; margin-left: 6px;"></div>`
         item.color = `hsl(120, ${(1-item.y/(n+1))*100}%, ${(1-item.y/(n+1))*100}%)`
     })
 
+    clearTimeout(timeout)
     loading.value = false
+    showMessage.value = false
+
     chartOptions.value = {
         title: {
             text: ''
@@ -119,13 +134,16 @@ const loadData = async () => {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-top: 30px;
-    background-color: inherit;
+    margin-top: 40px;
     flex-wrap: wrap;
 }
 
-.select {
-    width: 200px;
+.data-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 </style>

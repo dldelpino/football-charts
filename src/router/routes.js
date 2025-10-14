@@ -7,7 +7,7 @@ const routes = [
         component: () => import('pages/IndexPage.vue'),
         meta: {
           title: 'Football Charts',
-          description: '🚨 The first data load may take up to one minute.'
+          description: 'Select a section from the left drawer.'
         }
       },
       { 

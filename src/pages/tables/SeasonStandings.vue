@@ -4,18 +4,16 @@
         <SelectSeason v-model="season" />
         <ShowResults @click="loadData"/>
     </div>
-    <div class="buttons-container" style="padding-bottom: 30px">
-        <q-spinner-puff style="margin-top: 50px" v-if="loading" color="secondary" size="50px" :thickness="10"/>
+    <div class="data-container">
+        <LoadingSpinner v-if="loading"/>
+        <LoadingMessage :class="{visible: showMessage}"/>
         <q-table class="stats-table" flat bordered v-if="rows.length && !loading" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
-        <template v-slot:body-cell-team="props">
-            <q-td :props="props" style="align-items: center" class="row">
-            <img
-                :src="props.row.logo"
-                style="width: 16px; margin-right: 8px"
-            />
-            {{ props.row.team }}
-            </q-td>
-        </template>
+            <template v-slot:body-cell-team="props">
+                <q-td :props="props" style="align-items: center" class="row">
+                    <img :src="props.row.logo" style="width: 16px; margin-right: 8px"/>
+                    {{ props.row.team }}
+                </q-td>
+            </template>
         </q-table>
     </div>
 </template>
@@ -24,12 +22,16 @@
 
 import { ref } from 'vue'
 import axios from 'axios'
-import ShowResults from '../../components/ShowResults.vue'
+
+import LoadingMessage from 'src/components/LoadingMessage.vue'
+import LoadingSpinner from 'src/components/LoadingSpinner.vue'
 import SelectLeague from '../../components/SelectLeague.vue'
 import SelectSeason from '../../components/SelectSeason.vue'
+import ShowResults from '../../components/ShowResults.vue'
 
 const league = ref(null)
 const season = ref(null)
+
 const rows = ref([])
 const columns = ref([
     {name: "position", field: "position", label: "#", sortable: true},
@@ -45,17 +47,27 @@ const columns = ref([
 ])
 
 const loading = ref(false)
+const showMessage = ref(false)
 
 const loadData = async () => {
+    if (!league.value || !season.value) return
+
     loading.value = true
-    if (!league.value || !season.value) return 
+    const timeout = setTimeout(() => {
+        showMessage.value = true
+    }, 10000)    
+
     const res = await axios.get("https://football-charts-backend.onrender.com/season-standings", {
         params: {
-        league_name: league.value,
-        season: season.value
+            league_name: league.value,
+            season: season.value
         }
     })
+
+    clearTimeout(timeout)
     loading.value = false
+    showMessage.value = false
+
     rows.value = res.data
 }
 
@@ -67,12 +79,16 @@ const loadData = async () => {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 40px;
     flex-wrap: wrap;
 }
 
-.select {
-    width: 200px;
+.data-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .stats-table, .stats-table th, .stats-table td {

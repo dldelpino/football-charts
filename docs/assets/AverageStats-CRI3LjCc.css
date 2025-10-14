@@ -1,0 +1,1 @@
+.buttons-container{display:flex;justify-content:center;gap:30px;margin-top:40px;flex-wrap:wrap}.data-container{display:flex;flex-direction:column;justify-content:center;align-items:center;flex-wrap:wrap}.stats-table,.stats-table th,.stats-table td{border-color:#c2c2c2}.stats-table{border-radius:10px;max-width:90%}

@@ -20,8 +20,8 @@
     <q-drawer v-model="leftDrawerOpen" show-if-above class="drawer">
       <q-list>
         <q-item-label header class="drawer-title">
-          <q-icon :name="`img:icons/ball-white.png`" class="drawer-title-icon"/>
-          Football Charts
+            <q-icon :name="`img:icons/ball-white.png`" class="drawer-title-icon" @click="$router.push('/')"/>
+            <span @click="$router.push('/')" class="cursor-pointer">Football Charts</span>
         </q-item-label>
         <template v-for="(value, key, index) in sections" :key="index">
         <q-item-label header class="drawer-header">{{ key }}</q-item-label>
@@ -33,6 +33,9 @@
           </template>
         </template>
       </q-list>
+      <a href="http://github.com/dldelpino/football-charts" target="_blank">
+        <q-icon :name="`img:icons/github.png`" :to="'http://github.com/dldelpino/football-charts'" class="bottom-icon"/>
+      </a>
     </q-drawer>
 
     <q-page-container>
@@ -103,6 +106,8 @@ html {
 .drawer {
   display: flex;
   background: hsl(120, 26%, 18%) !important;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .icons-container {
@@ -172,6 +177,18 @@ html {
 .drawer-title-icon {
   width: 30px;
   height: 30px;
+  cursor: pointer;
+}
+
+.bottom-icon {
+  margin: 20px;
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s;
+}
+
+.bottom-icon:hover {
+  transform: scale(1.25);
 }
 
 </style>

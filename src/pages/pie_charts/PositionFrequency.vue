@@ -4,32 +4,30 @@
         <SelectPosition v-model.number="position" :disable="!league" :max="maxPosition"/>
         <ShowResults @click="loadData"/>
     </div>
-    <div class="buttons-container" style="padding-bottom: 30px; flex-direction: column; align-items: center;">
-        <q-spinner-puff style="margin-top: 50px;" v-if="loading" color="secondary" size="50px" :thickness="10"/>
-        <div class="chart-container">
+    <div class="data-container">
+        <LoadingSpinner v-if="loading"/>
+        <LoadingMessage :class="{visible: showMessage}"/>
+        <div style="width: 90%">
             <Chart v-if="!loading" :key="chartKey" :options="chartOptions"></Chart>
         </div>
     </div>
 </template>
 
 <script setup>
+
 import { ref, watch } from 'vue'
 import { Chart } from 'highcharts-vue'
-import ShowResults from '../../components/ShowResults.vue'
+import axios from 'axios'
+
+import LoadingMessage from 'src/components/LoadingMessage.vue'
+import LoadingSpinner from 'src/components/LoadingSpinner.vue'
 import SelectLeague from '../../components/SelectLeague.vue'
 import SelectPosition from '../../components/SelectPosition.vue'
-import axios from 'axios'
+import ShowResults from '../../components/ShowResults.vue'
 
 const league = ref(null)
 const position = ref(null)
 const maxPosition = ref(null)
-const leaguesCountries = {
-    "LaLiga": "Spain",
-    "Premier League": "England",
-    "Serie A": "Italy",
-    "Bundesliga": "Germany",
-    "Ligue 1": "France"
-}
 
 const chartKey = ref(0)
 const chartOptions = ref({
@@ -45,23 +43,32 @@ const chartOptions = ref({
 })
 
 const loading = ref(false)
+const showMessage = ref(false)
+
+const leaguesCountries = {
+    "LaLiga": "Spain",
+    "Premier League": "England",
+    "Serie A": "Italy",
+    "Bundesliga": "Germany",
+    "Ligue 1": "France"
+}
 
 const loadData = async () => {
-    loading.value = true
     if (!league.value || !position.value) return
+
+    loading.value = true
+    const timeout = setTimeout(() => {
+        showMessage.value = true
+    }, 10000)
+
     const res = await axios.get("https://football-charts-backend.onrender.com/position-frequency", {
         params: {
             league_name: league.value,
             position: position.value
         }
     })
-    const positionCount = res.data // {"Real Madrid": 69, "Barcelona": 68, ...}
-    const n = Object.keys(positionCount).length
-    const colors = []
-    for (let i = 1; i <= n; i++) {
-        colors.push(`hsl(120, ${Math.floor(i/(n+1)*100)}%, ${Math.floor(i/(n+1)*100)}%)`)
-    }
 
+    const positionCount = res.data // {"Real Madrid": 69, "Barcelona": 68, ...}
     const chartData = Object.entries(positionCount).sort((a, b) => b[1] - a[1]).map(([name, y]) => ({name, y})) // Object.entries devuelve una lista de pares de la forma [key, value]
     
     let positionOrdinal
@@ -75,8 +82,18 @@ const loadData = async () => {
         positionOrdinal = 'th'
     }
 
+    const n = Object.keys(positionCount).length
+    const colors = []
+    for (let i = 1; i <= n; i++) {
+        colors.push(`hsl(120, ${Math.floor(i/(n+1)*100)}%, ${Math.floor(i/(n+1)*100)}%)`)
+    }
+
+    clearTimeout(timeout)
     loading.value = false
+    showMessage.value = false
+
     chartKey.value++ // cada vez que se pulsa el botón, se genera un gráfico con una key distinta
+
     chartOptions.value = {
         title: {
             text: ''
@@ -85,12 +102,10 @@ const loadData = async () => {
             backgroundColor: '#eeeeee',
             type: 'pie',
             height: 500,
-            // width: 1000
         },
         colors: colors,
         plotOptions: {
             pie: {
-                // size: 500,
                 dataLabels: {
                     enabled: true,
                     useHTML: true,
@@ -141,17 +156,16 @@ watch(position, () => {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-top: 30px;
-    background-color: inherit;
+    margin-top: 40px;
     flex-wrap: wrap;
 }
 
-.chart-container {
-    width: 90%;
-}
-
-.select {
-    width: 200px;
+.data-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 </style>
