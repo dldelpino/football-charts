@@ -51,6 +51,14 @@ const routes = [
         }
       },
       { 
+        path: 'threshold-standings', 
+        component: () => import('src/pages/tables/ThresholdStandings.vue'),
+        meta: {
+          title: 'Threshold Standings',
+          description: 'Final results of teams that achieved a minimum number of points on a given matchweek.'
+        }
+      },
+      { 
         path: 'position-frequency', 
         component: () => import('src/pages/pie_charts/PositionFrequency.vue'),
         meta: {

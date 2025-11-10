@@ -1,7 +1,14 @@
 <template>
     <div class="buttons-container">
         <SelectLeague v-model="league"/>
-        <SelectPosition v-model.number="position" :disable="!league" :max="maxPosition"/>
+
+        <q-input v-model.number="position" :disable="!league" outlined rounded bg-color="white" dense color="secondary" style="width: 110px;" label="Pos.">
+            <template v-slot:append>
+                <q-btn round dense flat icon="remove" size="10px" @mousedown="decreasePosition" @mouseup="clear" @mouseleave="clear"/>
+                <q-btn round dense flat icon="add" size="10px" @mousedown="increasePosition" @mouseup="clear" @mouseleave="clear"/>
+            </template>
+        </q-input>
+
         <ShowResults @click="loadData"/>
     </div>
     <div class="data-container">
@@ -22,12 +29,31 @@ import axios from 'axios'
 import LoadingMessage from 'src/components/LoadingMessage.vue'
 import LoadingSpinner from 'src/components/LoadingSpinner.vue'
 import SelectLeague from '../../components/SelectLeague.vue'
-import SelectPosition from '../../components/SelectPosition.vue'
 import ShowResults from '../../components/ShowResults.vue'
 
 const league = ref(null)
 const position = ref(null)
 const maxPosition = ref(null)
+
+let interval = null
+let timeout = null
+
+const decreasePosition = () => {
+    position.value--
+    timeout = setTimeout(() => {
+        interval = setInterval(() => position.value--, 50)
+    }, 250)
+}
+const increasePosition = () => {
+    position.value++
+    timeout = setTimeout(() => {
+        interval = setInterval(() => position.value++, 50)
+    }, 250)
+}
+const clear = () => {
+    clearInterval(interval)
+    clearTimeout(timeout)
+}
 
 const chartKey = ref(0)
 const chartOptions = ref({
@@ -140,12 +166,9 @@ watch(league, (newLeague) => {
     }
 })
 
-watch(position, () => {
-    if (position.value > maxPosition.value) {
-        position.value = maxPosition.value
-    } else if (!(position.value == null) && position.value < 1) {
-        position.value = 1
-    }
+watch(position, (newPosition) => {
+    if (newPosition > maxPosition.value) position.value = maxPosition.value
+    else if (!(position.value == null) && position.value < 1) position.value = 1
 })
 
 </script>

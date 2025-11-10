@@ -33,9 +33,11 @@
           </template>
         </template>
       </q-list>
-      <a href="http://github.com/dldelpino/football-charts" target="_blank">
-        <q-icon :name="`img:icons/github.png`" :to="'http://github.com/dldelpino/football-charts'" class="bottom-icon"/>
-      </a>
+      <div style="margin-left: 20px; margin-bottom: 20px">
+        <a href="http://github.com/dldelpino/football-charts" target="_blank">
+          <img src="icons/github.png" class="bottom-icon"/>
+        </a>
+      </div>
     </q-drawer>
 
     <q-page-container>
@@ -52,7 +54,7 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const sections = {
-  'TABLES': ['Average Stats', 'Position History', 'Promoted Teams', 'Season Standings', 'Team Trajectory'],
+  'TABLES': ['Average Stats', 'Position History', 'Promoted Teams', 'Season Standings', 'Team Trajectory', 'Threshold Standings'],
   'PIE CHARTS': ['Position Frequency'],
   'BAR CHARTS': ['Promotion Frequency', 'Relegation Frequency'],
 }
@@ -181,7 +183,6 @@ html {
 }
 
 .bottom-icon {
-  margin: 20px;
   width: 30px;
   height: 30px;
   transition: transform 0.2s;

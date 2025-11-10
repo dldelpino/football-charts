@@ -1,6 +1,22 @@
 <template>
+    <NoDataAvailable v-model="error"/>
     <div class="buttons-container">
         <SelectLeague v-model="league"/>
+
+        <q-input v-model.number="matchweek" :disable="!league" outlined rounded bg-color="white" dense color="secondary" style="width: 110px;" label="MW">
+            <template v-slot:append>
+                <q-btn round dense flat icon="remove" size="10px" @mousedown="decreaseMatchweek" @mouseup="clear" @mouseleave="clear"/>
+                <q-btn round dense flat icon="add" size="10px" @mousedown="increaseMatchweek" @mouseup="clear" @mouseleave="clear"/>
+            </template>
+        </q-input>
+
+        <q-input v-model.number="points" :disable="!matchweek" outlined rounded bg-color="white" dense color="secondary" style="width: 110px;" label="Pts.">
+            <template v-slot:append>
+                <q-btn round dense flat icon="remove" size="10px" @mousedown="decreasePoints" @mouseup="clear" @mouseleave="clear"/>
+                <q-btn round dense flat icon="add" size="10px" @mousedown="increasePoints" @mouseup="clear" @mouseleave="clear"/>
+            </template>
+        </q-input>
+
         <ShowResults @click="loadData"/>
     </div>
     <div class="data-container">
@@ -19,35 +35,78 @@
 
 <script setup>
 
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import axios from 'axios'
 
 import LoadingMessage from 'src/components/LoadingMessage.vue'
 import LoadingSpinner from 'src/components/LoadingSpinner.vue'
-import SelectLeague from '../../components/SelectLeague.vue'
-import ShowResults from '../../components/ShowResults.vue'
+import NoDataAvailable from 'src/components/NoDataAvailable.vue'
+import SelectLeague from 'src/components/SelectLeague.vue'
+import ShowResults from 'src/components/ShowResults.vue'
 
 const league = ref(null)
+const matchweek = ref(null)
+const points = ref(null)
+
+const maxMatchweek = ref(null)
+const maxPoints = ref(null)
+
+let interval = null
+let timeout = null
+
+const decreaseMatchweek = () => {
+    matchweek.value--
+    timeout = setTimeout(() => {
+        interval = setInterval(() => matchweek.value--, 50)
+    }, 250)
+}
+const increaseMatchweek = () => {
+    matchweek.value++
+    timeout = setTimeout(() => {
+        interval = setInterval(() => matchweek.value++, 50)
+    }, 250)
+}
+const decreasePoints = () => {
+    points.value--
+    timeout = setTimeout(() => {
+        interval = setInterval(() => points.value--, 50)
+    }, 250)
+}
+const increasePoints = () => {
+    points.value++
+    timeout = setTimeout(() => {
+        interval = setInterval(() => points.value++, 50)
+    }, 250)
+}
+const clear = () => {
+    clearInterval(interval)
+    clearTimeout(timeout)
+}
 
 const rows = ref([])
 let columns
 
 const loading = ref(false)
 const showMessage = ref(false)
+const error = ref(false)
 
 const loadData = async () => {
     if (!league.value) return
 
     loading.value = true
+    error.value = false
     const timeout = setTimeout(() => {
         showMessage.value = true
-    }, 10000)
+    }, 15000)
 
     if (league.value == "Serie A" || league.value == "Ligue 1") {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
+            // {name: "position_mw", field: "position_mw", label: `# (MW${matchweek.value})`, sortable: true, style: "width: 70px"},
             {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
+            {name: "ppm_mw", field: "ppm_mw", label: `PPM (MW${matchweek.value})`, sortable: true, style: "width: 70px"},
+            {name: "points_mw", field: "points_mw", label: `Points (MW${matchweek.value})`, sortable: true, style: "width: 70px"},
             {name: "ppm", field: "ppm", label: "PPM", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "points", field: "points", label: "Points", sortable: true, style: "width: 70px"},
             {name: "matches_played", field: "matches_played", label: "MP", sortable: true, style: "width: 70px"},
@@ -58,11 +117,14 @@ const loadData = async () => {
             {name: "goals_against", field: "goals_against", label: "GA", sortable: true, style: "width: 70px"},
             {name: "goal_difference", field: "goal_difference", label: "GD", sortable: true, style: "width: 70px"}
         ])
-    } else {
+    }
+    else {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
+            // {name: "position_mw", field: "position_mw", label: `# (MW${matchweek.value})`, sortable: true},
             {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
+            {name: "points_mw", field: "points_mw", label: `Points (MW${matchweek.value})`, sortable: true, style: "width: 70px"},
             {name: "points", field: "points", label: "Points", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "matches_played", field: "matches_played", label: "MP", sortable: true, style: "width: 70px"},
             {name: "wins", field: "wins", label: "W", sortable: true, style: "width: 70px"},
@@ -74,17 +136,53 @@ const loadData = async () => {
         ])
     }
 
-    const res = await axios.get("https://football-charts-backend.onrender.com/promoted-teams", {
+    const res = await axios.get("https://football-charts-backend.onrender.com/threshold-standings", { // local: http://localhost:8000/threshold-standings
         params: {
-            league_name: league.value
+            league_name: league.value,
+            matchweek: matchweek.value,
+            points: points.value
         }
     })
 
-    showMessage.value = false
     clearTimeout(timeout)
     loading.value = false
+    showMessage.value = false
+
     rows.value = res.data
+
+    console.log(!rows.value.length)
+    if (!rows.value.length) {
+        error.value = true
+    }
 }
+
+watch(league, () => {
+    matchweek.value = null
+    points.value = null
+})
+
+watch(matchweek, () => {
+    points.value = null
+})
+
+watch(league, (newLeague) => {
+    if (newLeague == "Bundesliga") {
+        maxMatchweek.value = 34
+    } else {
+        maxMatchweek.value = 38
+    }
+})
+
+watch(matchweek, (newMatchweek) => {
+    if (!(newMatchweek == null)) maxPoints.value = 3*newMatchweek
+    if (newMatchweek > maxMatchweek.value) matchweek.value = maxMatchweek.value
+    else if (!(newMatchweek == null) && newMatchweek < 1) matchweek.value = 1
+})
+
+watch(points, (newPoints) => {
+    if (newPoints > maxPoints.value) points.value = maxPoints.value
+    else if (!(newPoints == null) && newPoints < 0) points.value = 0
+})
 
 </script>
 

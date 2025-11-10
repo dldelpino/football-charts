@@ -134,6 +134,7 @@ watch(league, () => { // borra la selección del segundo botón si cambia la del
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
 .stats-table, .stats-table th, .stats-table td {
