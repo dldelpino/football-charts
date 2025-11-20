@@ -144,6 +144,7 @@ watch(league, () => { // borra la selección del segundo botón si cambia la del
 .stats-table {
     border-radius: 10px;
     max-width: 90%;
+    font-feature-settings: "tnum";
 }
 
 </style>

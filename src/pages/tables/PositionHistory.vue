@@ -164,6 +164,7 @@ watch(position, (newPosition) => {
 .stats-table {
     border-radius: 10px;
     max-width: 90%;
+    font-feature-settings: "tnum";
 }
 
 </style>

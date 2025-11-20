@@ -55,7 +55,7 @@ const routes = [
         component: () => import('src/pages/tables/ThresholdStandings.vue'),
         meta: {
           title: 'Threshold Standings',
-          description: 'Final results of teams that achieved a minimum number of points on a given matchweek.'
+          description: 'Final results of teams that achieved a minimum number of points after a given number of matches played.'
         }
       },
       { 

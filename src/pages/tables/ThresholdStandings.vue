@@ -3,14 +3,14 @@
     <div class="buttons-container">
         <SelectLeague v-model="league"/>
 
-        <q-input v-model.number="matchweek" :disable="!league" outlined rounded bg-color="white" dense color="secondary" style="width: 110px;" label="MW">
+        <q-input v-model.number="matchesPlayed" :disable="!league" outlined rounded bg-color="white" dense color="secondary" style="width: 110px;" label="MP">
             <template v-slot:append>
-                <q-btn round dense flat icon="remove" size="10px" @mousedown="decreaseMatchweek" @mouseup="clear" @mouseleave="clear"/>
-                <q-btn round dense flat icon="add" size="10px" @mousedown="increaseMatchweek" @mouseup="clear" @mouseleave="clear"/>
+                <q-btn round dense flat icon="remove" size="10px" @mousedown="decreaseMatchesPlayed" @mouseup="clear" @mouseleave="clear"/>
+                <q-btn round dense flat icon="add" size="10px" @mousedown="increaseMatchesPlayed" @mouseup="clear" @mouseleave="clear"/>
             </template>
         </q-input>
 
-        <q-input v-model.number="points" :disable="!matchweek" outlined rounded bg-color="white" dense color="secondary" style="width: 110px;" label="Pts.">
+        <q-input v-model.number="points" :disable="!matchesPlayed" outlined rounded bg-color="white" dense color="secondary" style="width: 110px;" label="Pts.">
             <template v-slot:append>
                 <q-btn round dense flat icon="remove" size="10px" @mousedown="decreasePoints" @mouseup="clear" @mouseleave="clear"/>
                 <q-btn round dense flat icon="add" size="10px" @mousedown="increasePoints" @mouseup="clear" @mouseleave="clear"/>
@@ -45,25 +45,25 @@ import SelectLeague from 'src/components/SelectLeague.vue'
 import ShowResults from 'src/components/ShowResults.vue'
 
 const league = ref(null)
-const matchweek = ref(null)
+const matchesPlayed = ref(null)
 const points = ref(null)
 
-const maxMatchweek = ref(null)
+const maxMatchesPlayed = ref(null)
 const maxPoints = ref(null)
 
 let interval = null
 let timeout = null
 
-const decreaseMatchweek = () => {
-    matchweek.value--
+const decreaseMatchesPlayed = () => {
+    matchesPlayed.value--
     timeout = setTimeout(() => {
-        interval = setInterval(() => matchweek.value--, 50)
+        interval = setInterval(() => matchesPlayed.value--, 50)
     }, 250)
 }
-const increaseMatchweek = () => {
-    matchweek.value++
+const increaseMatchesPlayed = () => {
+    matchesPlayed.value++
     timeout = setTimeout(() => {
-        interval = setInterval(() => matchweek.value++, 50)
+        interval = setInterval(() => matchesPlayed.value++, 50)
     }, 250)
 }
 const decreasePoints = () => {
@@ -103,10 +103,9 @@ const loadData = async () => {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
-            // {name: "position_mw", field: "position_mw", label: `# (MW${matchweek.value})`, sortable: true, style: "width: 70px"},
             {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
-            {name: "ppm_mw", field: "ppm_mw", label: `PPM (MW${matchweek.value})`, sortable: true, style: "width: 70px"},
-            {name: "points_mw", field: "points_mw", label: `Points (MW${matchweek.value})`, sortable: true, style: "width: 70px"},
+            {name: "ppm_mw", field: "ppm_mw", label: `PPM after ${matchesPlayed.value} MP`, sortable: true, style: "width: 70px"},
+            {name: "points_mw", field: "points_mw", label: `Points after ${matchesPlayed.value} MP`, sortable: true, style: "width: 70px"},
             {name: "ppm", field: "ppm", label: "PPM", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "points", field: "points", label: "Points", sortable: true, style: "width: 70px"},
             {name: "matches_played", field: "matches_played", label: "MP", sortable: true, style: "width: 70px"},
@@ -122,9 +121,8 @@ const loadData = async () => {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
-            // {name: "position_mw", field: "position_mw", label: `# (MW${matchweek.value})`, sortable: true},
             {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
-            {name: "points_mw", field: "points_mw", label: `Points (MW${matchweek.value})`, sortable: true, style: "width: 70px"},
+            {name: "points_mw", field: "points_mw", label: `Points after ${matchesPlayed.value} MP`, sortable: true, style: "width: 70px"},
             {name: "points", field: "points", label: "Points", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "matches_played", field: "matches_played", label: "MP", sortable: true, style: "width: 70px"},
             {name: "wins", field: "wins", label: "W", sortable: true, style: "width: 70px"},
@@ -136,11 +134,13 @@ const loadData = async () => {
         ])
     }
 
-    const res = await axios.get("https://football-charts-backend.onrender.com/threshold-standings", { // local: http://localhost:8000/threshold-standings
+    const res = await axios.get("https://football-charts-backend.onrender.com/threshold-standings", { 
+        // local: http://localhost:8000/threshold-standings
+        // online: https://football-charts-backend.onrender.com/threshold-standings
         params: {
             league_name: league.value,
-            matchweek: matchweek.value,
-            points: points.value
+            matches_played: matchesPlayed.value,
+            threshold: points.value
         }
     })
 
@@ -157,26 +157,26 @@ const loadData = async () => {
 }
 
 watch(league, () => {
-    matchweek.value = null
+    matchesPlayed.value = null
     points.value = null
 })
 
-watch(matchweek, () => {
+watch(matchesPlayed, () => {
     points.value = null
 })
 
 watch(league, (newLeague) => {
     if (newLeague == "Bundesliga") {
-        maxMatchweek.value = 34
+        maxMatchesPlayed.value = 34
     } else {
-        maxMatchweek.value = 38
+        maxMatchesPlayed.value = 38
     }
 })
 
-watch(matchweek, (newMatchweek) => {
-    if (!(newMatchweek == null)) maxPoints.value = 3*newMatchweek
-    if (newMatchweek > maxMatchweek.value) matchweek.value = maxMatchweek.value
-    else if (!(newMatchweek == null) && newMatchweek < 1) matchweek.value = 1
+watch(matchesPlayed, (newMatchesPlayed) => {
+    if (!(newMatchesPlayed == null)) maxPoints.value = 3*newMatchesPlayed
+    if (newMatchesPlayed > maxMatchesPlayed.value) matchesPlayed.value = maxMatchesPlayed.value
+    else if (!(newMatchesPlayed == null) && newMatchesPlayed < 1) matchesPlayed.value = 1
 })
 
 watch(points, (newPoints) => {
@@ -212,6 +212,7 @@ watch(points, (newPoints) => {
 .stats-table {
     border-radius: 10px;
     max-width: 90%;
+    font-feature-settings: "tnum";
 }
 
 </style>
