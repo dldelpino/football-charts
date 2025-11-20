@@ -35,7 +35,7 @@ const season = ref(null)
 const rows = ref([])
 const columns = ref([
     {name: "position", field: "position", label: "#", sortable: true},
-    {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
+    {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
     {name: "points", field: "points", label: "Points", sortable: true, style: "width: 70px; font-weight: bold"},
     {name: "matches_played", field: "matches_played", label: "MP", sortable: true, style: "width: 70px"},
     {name: "wins", field: "wins", label: "W", sortable: true, style: "width: 70px"},

@@ -47,7 +47,7 @@ const loadData = async () => {
         columns = ref([
             {name: "seasons_played", field: "seasons_played", label: "SP", sortable: true},
             {name: "avg_position", field: "avg_position", label: "Avg #", sortable: true},
-            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 180px"},
+            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
             {name: "avg_ppm", field: "avg_ppm", label: "Avg PPM", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "avg_points", field: "avg_points", label: "Avg Points", sortable: true, style: "width: 70px"},
             {name: "avg_wins", field: "avg_wins", label: "Avg W", sortable: true, style: "width: 70px"},
@@ -62,7 +62,7 @@ const loadData = async () => {
         columns = ref([
             {name: "seasons_played", field: "seasons_played", label: "SP", sortable: true},
             {name: "avg_position", field: "avg_position", label: "Avg #", sortable: true},
-            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 180px"},
+            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
             {name: "avg_points", field: "avg_points", label: "Avg Points", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "avg_wins", field: "avg_wins", label: "Avg W", sortable: true, style: "width: 70px"},
             {name: "avg_draws", field: "avg_draws", label: "Avg D", sortable: true, style: "width: 70px"},

@@ -73,6 +73,7 @@ const showMessage = ref(false)
 
 const leaguesCountries = {
     "LaLiga": "Spain",
+    "LaLiga2": "Spain",
     "Premier League": "England",
     "Serie A": "Italy",
     "Bundesliga": "Germany",
@@ -161,6 +162,8 @@ watch(league, () => {
 watch(league, (newLeague) => {
     if (newLeague == "Bundesliga") {
         maxPosition.value = 18
+    } else if (newLeague == "LaLiga2") {
+        maxPosition.value = 22
     } else {
         maxPosition.value = 20
     }

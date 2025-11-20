@@ -47,7 +47,7 @@ const loadData = async () => {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
-            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
+            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
             {name: "ppm", field: "ppm", label: "PPM", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "points", field: "points", label: "Points", sortable: true, style: "width: 70px"},
             {name: "matches_played", field: "matches_played", label: "MP", sortable: true, style: "width: 70px"},
@@ -62,7 +62,7 @@ const loadData = async () => {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
-            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
+            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
             {name: "points", field: "points", label: "Points", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "matches_played", field: "matches_played", label: "MP", sortable: true, style: "width: 70px"},
             {name: "wins", field: "wins", label: "W", sortable: true, style: "width: 70px"},

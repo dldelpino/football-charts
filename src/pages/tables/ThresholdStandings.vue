@@ -103,7 +103,7 @@ const loadData = async () => {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
-            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
+            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
             {name: "ppm_mw", field: "ppm_mw", label: `PPM after ${matchesPlayed.value} MP`, sortable: true, style: "width: 70px"},
             {name: "points_mw", field: "points_mw", label: `Points after ${matchesPlayed.value} MP`, sortable: true, style: "width: 70px"},
             {name: "ppm", field: "ppm", label: "PPM", sortable: true, style: "width: 70px; font-weight: bold"},
@@ -121,7 +121,7 @@ const loadData = async () => {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
-            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
+            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
             {name: "points_mw", field: "points_mw", label: `Points after ${matchesPlayed.value} MP`, sortable: true, style: "width: 70px"},
             {name: "points", field: "points", label: "Points", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "matches_played", field: "matches_played", label: "MP", sortable: true, style: "width: 70px"},
@@ -168,6 +168,8 @@ watch(matchesPlayed, () => {
 watch(league, (newLeague) => {
     if (newLeague == "Bundesliga") {
         maxMatchesPlayed.value = 34
+    } else if (newLeague == "LaLiga2") {
+        maxMatchesPlayed.value = 42
     } else {
         maxMatchesPlayed.value = 38
     }

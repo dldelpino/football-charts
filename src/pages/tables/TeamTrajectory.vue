@@ -2,7 +2,7 @@
     <div class="buttons-container">
         <SelectLeague v-model="league"/>
 
-        <q-select v-model="team" :disable="!league" :options="teamOptions" outlined rounded bg-color="white" size="100px" dense color="secondary" style="width: 200px" label="Team">
+        <q-select v-model="team" :disable="!league" :options="teamOptions" outlined rounded bg-color="white" size="100px" dense color="secondary" style="width: 220px" label="Team">
             <template v-slot:option="scope">
                 <q-item v-bind="scope.itemProps">
                     <div style="display: flex; align-items: center; gap: 8px">
@@ -53,14 +53,18 @@ const showMessage = ref(false)
 
 const leagueCountries = {
     "LaLiga": "Spain",
+    "LaLiga2": "Spain",
     "Premier League": "England",
     "Serie A": "Italy",
     "Bundesliga": "Germany",
     "Ligue 1": "France"
 }
-const leagueTeams = {
+const leagueTeams = { // generado con ayuda de los scripts del backend
     "LaLiga": [
         'Barcelona', 'Málaga', 'Deportivo', 'Athletic Bilbao', 'Real Madrid', 'Valencia', 'Real Sociedad', 'Racing Santander', 'Zaragoza', 'Espanyol', 'Las Palmas', 'Alavés', 'Mallorca', 'Valladolid', 'Numancia', 'Oviedo', 'Osasuna', 'Celta', 'Villarreal', 'Rayo Vallecano', 'Betis', 'Sevilla', 'Tenerife', 'Atlético Madrid', 'Recreativo', 'Albacete', 'Murcia', 'Levante', 'Getafe', 'Cádiz', 'Gimnàstic', 'Almería', 'Sporting Gijón', 'Xerez', 'Hércules', 'Granada', 'Elche', 'Eibar', 'Córdoba', 'Leganés', 'Girona', 'Huesca'
+    ].sort(),
+    "LaLiga2": [
+        'Málaga', 'Deportivo', 'Real Sociedad', 'Racing Santander', 'Zaragoza', 'Espanyol', 'Las Palmas', 'Alavés', 'Mallorca', 'Valladolid', 'Numancia', 'Oviedo', 'Osasuna', 'Celta', 'Villarreal', 'Rayo Vallecano', 'Betis', 'Sevilla', 'Tenerife', 'Atlético Madrid', 'Recreativo', 'Albacete', 'Murcia', 'Levante', 'Getafe', 'Cádiz', 'Gimnàstic', 'Almería', 'Sporting Gijón', 'Xerez', 'Hércules', 'Granada', 'Elche', 'Eibar', 'Córdoba', 'Leganés', 'Girona', 'Huesca', 'Lleida', 'Compostela', 'Salamanca', 'Real Jaén', 'Racing Ferrol', 'CF Extremadura', 'Badajoz', 'Universidad Las Palmas', 'Poli Ejido', 'Burgos', 'Terrassa', 'Atlético Malagueño', 'Ciudad de Murcia', 'Algeciras', 'Pontevedra', 'Lorca Deportiva', 'Real Madrid Castilla', 'Castellón', 'Ponferradina', 'Vecindario', 'Granada 74', 'Sevilla Atlético', 'Alicante', 'Cartagena', 'Real Unión', 'Villarreal B', 'Barça Atlètic', 'Alcorcón', 'Alcoyano', 'Guadalajara', 'Sabadell', 'Mirandés', 'Lugo', 'Llagostera', 'Bilbao Athletic', 'Reus', 'UCAM Murcia', 'Cultural Leonesa', 'Extremadura UD', 'Rayo Majadahonda', 'Fuenlabrada', 'Logroñés', 'Ibiza', 'Real Sociedad B', 'Amorebieta', 'Andorra', 'Eldense'
     ].sort(),
     "Premier League": [
         'Charlton', 'Manchester City', 'Chelsea', 'West Ham', 'Coventry', 'Middlesbrough', 'Derby', 'Southampton', 'Leeds', 'Everton', 'Leicester', 'Aston Villa', 'Liverpool', 'Bradford', 'Sunderland', 'Arsenal', 'Tottenham', 'Ipswich', 'Manchester United', 'Newcastle', 'Blackburn', 'Bolton', 'Fulham', 'West Brom', 'Birmingham', 'Wolves', 'Portsmouth', 'Norwich', 'Crystal Palace', 'Wigan', 'Watford', 'Reading', 'Sheffield', 'Stoke', 'Hull', 'Burnley', 'Blackpool', 'QPR', 'Swansea', 'Cardiff', 'Bournemouth', 'Brighton', 'Huddersfield', 'Brentford', 'Nottingham Forest', 'Luton'
@@ -91,7 +95,7 @@ const loadData = async () => {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
-            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
+            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
             {name: "ppm", field: "ppm", label: "PPM", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "points", field: "points", label: "Points", sortable: true, style: "width: 70px"},
             {name: "matches_played", field: "matches_played", label: "MP", sortable: true, style: "width: 70px"},
@@ -107,7 +111,7 @@ const loadData = async () => {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
-            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 250px"},
+            {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
             {name: "points", field: "points", label: "Points", sortable: true, style: "width: 70px; font-weight: bold"},
             {name: "matches_played", field: "matches_played", label: "MP", sortable: true, style: "width: 70px"},
             {name: "wins", field: "wins", label: "W", sortable: true, style: "width: 70px"},
@@ -120,7 +124,10 @@ const loadData = async () => {
     }
 
     const res = await axios.get("https://football-charts-backend.onrender.com/team-trajectory", {
+        // local: http://localhost:8000/team-trajectory
+        // online: https://football-charts-backend.onrender.com/team-trajectory
         params: {
+            league_name: league.value,
             team_name: team.value
         }
     })
