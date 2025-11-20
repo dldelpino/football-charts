@@ -1,7 +1,21 @@
 <template>
     <div class="buttons-container">
         <SelectLeague v-model="league"/>
-        <SelectTeam :options="teamOptions" v-model="team" :disable="!league"/>
+
+        <q-select v-model="team" :disable="!league" :options="teamOptions" outlined rounded bg-color="white" size="100px" dense color="secondary" style="width: 200px" label="Team">
+            <template v-slot:option="scope">
+                <q-item v-bind="scope.itemProps">
+                    <div style="display: flex; align-items: center; gap: 8px">
+                        <img :src="`icons/teams/${leagueCountries[league]}/${scope.opt}.png`" width="16px"/>
+                        {{ scope.opt}}
+                    </div>
+                </q-item>
+            </template>
+            <template v-slot:selected-item="scope">
+                {{ scope.opt}}
+            </template>
+        </q-select>
+
         <ShowResults @click="loadData"/>
     </div>
     <div class="data-container">
@@ -26,7 +40,6 @@ import axios from 'axios'
 import LoadingMessage from 'src/components/LoadingMessage.vue'
 import LoadingSpinner from 'src/components/LoadingSpinner.vue'
 import SelectLeague from '../../components/SelectLeague.vue'
-import SelectTeam from '../../components/SelectTeam.vue'
 import ShowResults from '../../components/ShowResults.vue'
 
 const league = ref(null)
@@ -38,6 +51,13 @@ let columns
 const loading = ref(false)
 const showMessage = ref(false)
 
+const leagueCountries = {
+    "LaLiga": "Spain",
+    "Premier League": "England",
+    "Serie A": "Italy",
+    "Bundesliga": "Germany",
+    "Ligue 1": "France"
+}
 const leagueTeams = {
     "LaLiga": [
         'Barcelona', 'Málaga', 'Deportivo', 'Athletic Bilbao', 'Real Madrid', 'Valencia', 'Real Sociedad', 'Racing Santander', 'Zaragoza', 'Espanyol', 'Las Palmas', 'Alavés', 'Mallorca', 'Valladolid', 'Numancia', 'Oviedo', 'Osasuna', 'Celta', 'Villarreal', 'Rayo Vallecano', 'Betis', 'Sevilla', 'Tenerife', 'Atlético Madrid', 'Recreativo', 'Albacete', 'Murcia', 'Levante', 'Getafe', 'Cádiz', 'Gimnàstic', 'Almería', 'Sporting Gijón', 'Xerez', 'Hércules', 'Granada', 'Elche', 'Eibar', 'Córdoba', 'Leganés', 'Girona', 'Huesca'
@@ -56,7 +76,7 @@ const leagueTeams = {
     ].sort()
 }
 const teamOptions = computed(() => {
-    return leagueTeams[league.value]
+    return league.value ? leagueTeams[league.value] : []
 })
 
 const loadData = async () => {
