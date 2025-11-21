@@ -41,6 +41,7 @@ const showMessage = ref(false)
 
 const leaguesCountries = {
     "LaLiga": "Spain",
+    "LaLiga2": "Spain",
     "Premier League": "England",
     "Serie A": "Italy",
     "Bundesliga": "Germany",
@@ -56,6 +57,8 @@ const loadData = async () => {
     }, 10000)
 
     const res = await axios.get("https://football-charts-backend.onrender.com/relegation-frequency", {
+        // local: http://localhost:8000/relegation-frequency
+        // online: https://football-charts-backend.onrender.com/relegation-frequency
         params: {
             league_name: league.value
         }
@@ -86,6 +89,9 @@ const loadData = async () => {
             height: 30*chartData.length,
             width: 800,
             marginRight: 20
+        },
+        tooltip: { // lo que sale al pasar el ratón por encima de una barra
+            outside: true
         },
         legend: {
             enabled: false

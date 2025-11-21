@@ -75,6 +75,8 @@ const loadData = async () => {
     }
 
     const res = await axios.get("https://football-charts-backend.onrender.com/promoted-teams", {
+        // local: http://localhost:8000/promoted-teams
+        // online: https://football-charts-backend.onrender.com/promoted-teams
         params: {
             league_name: league.value
         }

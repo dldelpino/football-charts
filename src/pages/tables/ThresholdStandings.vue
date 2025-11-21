@@ -97,7 +97,7 @@ const loadData = async () => {
     error.value = false
     const timeout = setTimeout(() => {
         showMessage.value = true
-    }, 15000)
+    }, 20000)
 
     if (league.value == "Serie A" || league.value == "Ligue 1") {
         columns = ref([

@@ -57,6 +57,8 @@ const loadData = async () => {
     }, 10000)
 
     const res = await axios.get("https://football-charts-backend.onrender.com/promotion-frequency", {
+        // local: http://localhost:8000/promotion-frequency
+        // online: https://football-charts-backend.onrender.com/promotion-frequency
         params: {
             league_name: league.value
         }
@@ -87,6 +89,9 @@ const loadData = async () => {
             height: 30*chartData.length,
             width: 800,
             marginRight: 20
+        },
+        tooltip: { // lo que sale al pasar el ratón por encima de una barra
+            outside: true
         },
         legend: {
             enabled: false

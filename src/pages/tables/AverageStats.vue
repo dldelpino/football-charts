@@ -74,6 +74,8 @@ const loadData = async () => {
     }
 
     const res = await axios.get("https://football-charts-backend.onrender.com/average-stats", {
+        // local: http://localhost:8000/average-stats
+        // online: https://football-charts-backend.onrender.com/average-stats
         params: {
             league_name: league.value
         }

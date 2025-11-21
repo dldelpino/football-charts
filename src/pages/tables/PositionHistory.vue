@@ -106,6 +106,8 @@ const loadData = async () => {
     }
 
     const res = await axios.get("https://football-charts-backend.onrender.com/position-history", {
+        // local: http://localhost:8000/position-history
+        // online: https://football-charts-backend.onrender.com/position-history
         params: {
             league_name: league.value,
             position: position.value
