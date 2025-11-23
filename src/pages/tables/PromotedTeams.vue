@@ -6,28 +6,24 @@
     <div class="data-container">
         <LoadingSpinner v-if="loading"/>
         <LoadingMessage :class="{visible: showMessage}"/>
-        <q-table class="stats-table" flat bordered v-if="rows.length && !loading" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
-            <template v-slot:body-cell-team="props">
-                <q-td :props="props" style="align-items: center" class="row">
-                    <img :src="props.row.logo" style="width: 16px; margin-right: 8px"/>
-                    {{ props.row.team }}
-                </q-td>
-            </template>
-        </q-table>
+        <ChartTable :rows="rows" :columns="columns" v-if="rows.length && !loading"/>
     </div>
 </template>
 
 <script setup>
 
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import axios from 'axios'
 
+import ChartTable from 'src/components/ChartTable.vue'
 import LoadingMessage from 'src/components/LoadingMessage.vue'
 import LoadingSpinner from 'src/components/LoadingSpinner.vue'
-import SelectLeague from '../../components/SelectLeague.vue'
-import ShowResults from '../../components/ShowResults.vue'
+import SelectLeague from 'src/components/SelectLeague.vue'
+import ShowResults from 'src/components/ShowResults.vue'
 
 const league = ref(null)
+
+const specialLeagues = inject('specialLeagues')
 
 const rows = ref([])
 let columns
@@ -43,7 +39,7 @@ const loadData = async () => {
         showMessage.value = true
     }, 10000)
 
-    if (league.value == "Serie A" || league.value == "Ligue 1") {
+    if (specialLeagues.includes(league.value)) {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
@@ -82,41 +78,15 @@ const loadData = async () => {
         }
     })
 
-    showMessage.value = false
     clearTimeout(timeout)
     loading.value = false
+    showMessage.value = false
+
     rows.value = res.data
 }
 
 </script>
 
 <style>
-
-.buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-.data-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-
-.stats-table, .stats-table th, .stats-table td {
-    border-color: #c2c2c2;
-}
-
-.stats-table {
-    border-radius: 10px;
-    max-width: 90%;
-    font-feature-settings: "tnum";
-}
 
 </style>

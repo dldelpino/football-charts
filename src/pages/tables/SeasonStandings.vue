@@ -1,20 +1,13 @@
 <template>
     <div class="buttons-container">
         <SelectLeague v-model="league"/>
-        <SelectSeason v-model="season" />
+        <SelectSeason v-model="season"/>
         <ShowResults @click="loadData"/>
     </div>
     <div class="data-container">
         <LoadingSpinner v-if="loading"/>
         <LoadingMessage :class="{visible: showMessage}"/>
-        <q-table class="stats-table" flat bordered v-if="rows.length && !loading" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
-            <template v-slot:body-cell-team="props">
-                <q-td :props="props" style="align-items: center" class="row">
-                    <img :src="props.row.logo" style="width: 16px; margin-right: 8px"/>
-                    {{ props.row.team }}
-                </q-td>
-            </template>
-        </q-table>
+        <ChartTable :rows="rows" :columns="columns" v-if="rows.length && !loading"/>
     </div>
 </template>
 
@@ -23,11 +16,12 @@
 import { ref } from 'vue'
 import axios from 'axios'
 
+import ChartTable from 'src/components/ChartTable.vue'
 import LoadingMessage from 'src/components/LoadingMessage.vue'
 import LoadingSpinner from 'src/components/LoadingSpinner.vue'
-import SelectLeague from '../../components/SelectLeague.vue'
-import SelectSeason from '../../components/SelectSeason.vue'
-import ShowResults from '../../components/ShowResults.vue'
+import SelectLeague from 'src/components/SelectLeague.vue'
+import SelectSeason from 'src/components/SelectSeason.vue'
+import ShowResults from 'src/components/ShowResults.vue'
 
 const league = ref(null)
 const season = ref(null)
@@ -58,6 +52,8 @@ const loadData = async () => {
     }, 10000)    
 
     const res = await axios.get("https://football-charts-backend.onrender.com/season-standings", {
+        // local: http://localhost:8000/season-standings
+        // online: https://football-charts-backend.onrender.com/season-standings
         params: {
             league_name: league.value,
             season: season.value
@@ -74,32 +70,5 @@ const loadData = async () => {
 </script>
 
 <style>
-
-.buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-.data-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-
-.stats-table, .stats-table th, .stats-table td {
-    border-color: #c2c2c2;
-}
-
-.stats-table {
-    border-radius: 10px;
-    max-width: 90%;
-    font-feature-settings: "tnum";
-}
 
 </style>

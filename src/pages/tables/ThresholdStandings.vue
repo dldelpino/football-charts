@@ -2,46 +2,28 @@
     <NoDataAvailable v-model="error"/>
     <div class="buttons-container">
         <SelectLeague v-model="league"/>
-
-        <q-input v-model.number="matchesPlayed" :disable="!league" outlined rounded bg-color="white" dense color="secondary" style="width: 110px;" label="MP">
-            <template v-slot:append>
-                <q-btn round dense flat icon="remove" size="10px" @mousedown="decreaseMatchesPlayed" @mouseup="clear" @mouseleave="clear"/>
-                <q-btn round dense flat icon="add" size="10px" @mousedown="increaseMatchesPlayed" @mouseup="clear" @mouseleave="clear"/>
-            </template>
-        </q-input>
-
-        <q-input v-model.number="points" :disable="!matchesPlayed" outlined rounded bg-color="white" dense color="secondary" style="width: 110px;" label="Pts.">
-            <template v-slot:append>
-                <q-btn round dense flat icon="remove" size="10px" @mousedown="decreasePoints" @mouseup="clear" @mouseleave="clear"/>
-                <q-btn round dense flat icon="add" size="10px" @mousedown="increasePoints" @mouseup="clear" @mouseleave="clear"/>
-            </template>
-        </q-input>
-
+        <SelectNumber v-model.number="matchesPlayed" :disable="!league" label="MP"/>
+        <SelectNumber v-model.number="points" :disable="!matchesPlayed" label="Pts."/>
         <ShowResults @click="loadData"/>
     </div>
     <div class="data-container">
         <LoadingSpinner v-if="loading"/>
         <LoadingMessage :class="{visible: showMessage}"/>
-        <q-table class="stats-table" flat bordered v-if="rows.length && !loading" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
-            <template v-slot:body-cell-team="props">
-                <q-td :props="props" style="align-items: center" class="row">
-                    <img :src="props.row.logo" style="width: 16px; margin-right: 8px"/>
-                    {{ props.row.team }}
-                </q-td>
-            </template>
-        </q-table>
+        <ChartTable :rows="rows" :columns="columns" v-if="rows.length && !loading"/>
     </div>
 </template>
 
 <script setup>
 
-import { ref, watch } from 'vue'
+import { inject, ref, watch } from 'vue'
 import axios from 'axios'
 
+import ChartTable from 'src/components/ChartTable.vue'
 import LoadingMessage from 'src/components/LoadingMessage.vue'
 import LoadingSpinner from 'src/components/LoadingSpinner.vue'
 import NoDataAvailable from 'src/components/NoDataAvailable.vue'
 import SelectLeague from 'src/components/SelectLeague.vue'
+import SelectNumber from 'src/components/SelectNumber.vue'
 import ShowResults from 'src/components/ShowResults.vue'
 
 const league = ref(null)
@@ -51,37 +33,8 @@ const points = ref(null)
 const maxMatchesPlayed = ref(null)
 const maxPoints = ref(null)
 
-let interval = null
-let timeout = null
-
-const decreaseMatchesPlayed = () => {
-    matchesPlayed.value--
-    timeout = setTimeout(() => {
-        interval = setInterval(() => matchesPlayed.value--, 50)
-    }, 250)
-}
-const increaseMatchesPlayed = () => {
-    matchesPlayed.value++
-    timeout = setTimeout(() => {
-        interval = setInterval(() => matchesPlayed.value++, 50)
-    }, 250)
-}
-const decreasePoints = () => {
-    points.value--
-    timeout = setTimeout(() => {
-        interval = setInterval(() => points.value--, 50)
-    }, 250)
-}
-const increasePoints = () => {
-    points.value++
-    timeout = setTimeout(() => {
-        interval = setInterval(() => points.value++, 50)
-    }, 250)
-}
-const clear = () => {
-    clearInterval(interval)
-    clearTimeout(timeout)
-}
+const leaguePositions = inject('leaguePositions')
+const specialLeagues = inject('specialLeagues')
 
 const rows = ref([])
 let columns
@@ -99,7 +52,7 @@ const loadData = async () => {
         showMessage.value = true
     }, 20000)
 
-    if (league.value == "Serie A" || league.value == "Ligue 1") {
+    if (specialLeagues.includes(league.value)) {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
@@ -166,13 +119,7 @@ watch(matchesPlayed, () => {
 })
 
 watch(league, (newLeague) => {
-    if (newLeague == "Bundesliga") {
-        maxMatchesPlayed.value = 34
-    } else if (newLeague == "LaLiga2") {
-        maxMatchesPlayed.value = 42
-    } else {
-        maxMatchesPlayed.value = 38
-    }
+    maxMatchesPlayed.value = 2*(leaguePositions[newLeague] - 1)
 })
 
 watch(matchesPlayed, (newMatchesPlayed) => {
@@ -189,32 +136,5 @@ watch(points, (newPoints) => {
 </script>
 
 <style>
-
-.buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-.data-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-
-.stats-table, .stats-table th, .stats-table td {
-    border-color: #c2c2c2;
-}
-
-.stats-table {
-    border-radius: 10px;
-    max-width: 90%;
-    font-feature-settings: "tnum";
-}
 
 </style>

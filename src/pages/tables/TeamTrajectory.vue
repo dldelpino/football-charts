@@ -1,87 +1,38 @@
 <template>
     <div class="buttons-container">
         <SelectLeague v-model="league"/>
-
-        <q-select v-model="team" :disable="!league" :options="teamOptions" outlined rounded bg-color="white" size="100px" dense color="secondary" style="width: 220px" label="Team">
-            <template v-slot:option="scope">
-                <q-item v-bind="scope.itemProps">
-                    <div style="display: flex; align-items: center; gap: 8px">
-                        <img :src="`icons/teams/${leagueCountries[league]}/${scope.opt}.png`" width="16px"/>
-                        {{ scope.opt}}
-                    </div>
-                </q-item>
-            </template>
-            <template v-slot:selected-item="scope">
-                {{ scope.opt}}
-            </template>
-        </q-select>
-
+        <SelectTeam v-model="team" v-model:league="league"/>
         <ShowResults @click="loadData"/>
     </div>
     <div class="data-container">
         <LoadingSpinner v-if="loading"/>
         <LoadingMessage :class="{visible: showMessage}"/>
-        <q-table class="stats-table" flat bordered v-if="rows.length && !loading" :rows="rows" :columns="columns" virtual-scroll hide-bottom :rows-per-page-options="[0]">
-            <template v-slot:body-cell-team="props">
-                <q-td :props="props" style="align-items: center" class="row">
-                    <img :src="props.row.logo" style="width: 16px; margin-right: 8px"/>
-                    {{ props.row.team }}
-                </q-td>
-            </template>
-        </q-table>
+        <ChartTable :rows="rows" :columns="columns" v-if="rows.length && !loading"/>
     </div>
 </template>
 
 <script setup>
 
-import { ref, computed, watch } from 'vue'
+import { inject, ref, watch } from 'vue'
 import axios from 'axios'
 
+import ChartTable from 'src/components/ChartTable.vue'
 import LoadingMessage from 'src/components/LoadingMessage.vue'
 import LoadingSpinner from 'src/components/LoadingSpinner.vue'
-import SelectLeague from '../../components/SelectLeague.vue'
-import ShowResults from '../../components/ShowResults.vue'
+import SelectLeague from 'src/components/SelectLeague.vue'
+import SelectTeam from 'src/components/SelectTeam.vue'
+import ShowResults from 'src/components/ShowResults.vue'
 
 const league = ref(null)
 const team = ref(null)
+
+const specialLeagues = inject('specialLeagues')
 
 const rows = ref([])
 let columns
 
 const loading = ref(false)
 const showMessage = ref(false)
-
-const leagueCountries = {
-    "LaLiga": "Spain",
-    "LaLiga2": "Spain",
-    "Premier League": "England",
-    "Serie A": "Italy",
-    "Bundesliga": "Germany",
-    "Ligue 1": "France"
-}
-const leagueTeams = { // generado con ayuda de los scripts del backend
-    "LaLiga": [
-        'Barcelona', 'Málaga', 'Deportivo', 'Athletic Bilbao', 'Real Madrid', 'Valencia', 'Real Sociedad', 'Racing Santander', 'Zaragoza', 'Espanyol', 'Las Palmas', 'Alavés', 'Mallorca', 'Valladolid', 'Numancia', 'Oviedo', 'Osasuna', 'Celta', 'Villarreal', 'Rayo Vallecano', 'Betis', 'Sevilla', 'Tenerife', 'Atlético Madrid', 'Recreativo', 'Albacete', 'Murcia', 'Levante', 'Getafe', 'Cádiz', 'Gimnàstic', 'Almería', 'Sporting Gijón', 'Xerez', 'Hércules', 'Granada', 'Elche', 'Eibar', 'Córdoba', 'Leganés', 'Girona', 'Huesca'
-    ].sort(),
-    "LaLiga2": [
-        'Málaga', 'Deportivo', 'Real Sociedad', 'Racing Santander', 'Zaragoza', 'Espanyol', 'Las Palmas', 'Alavés', 'Mallorca', 'Valladolid', 'Numancia', 'Oviedo', 'Osasuna', 'Celta', 'Villarreal', 'Rayo Vallecano', 'Betis', 'Sevilla', 'Tenerife', 'Atlético Madrid', 'Recreativo', 'Albacete', 'Murcia', 'Levante', 'Getafe', 'Cádiz', 'Gimnàstic', 'Almería', 'Sporting Gijón', 'Xerez', 'Hércules', 'Granada', 'Elche', 'Eibar', 'Córdoba', 'Leganés', 'Girona', 'Huesca', 'Lleida', 'Compostela', 'Salamanca', 'Real Jaén', 'Racing Ferrol', 'CF Extremadura', 'Badajoz', 'Universidad Las Palmas', 'Poli Ejido', 'Burgos', 'Terrassa', 'Atlético Malagueño', 'Ciudad de Murcia', 'Algeciras', 'Pontevedra', 'Lorca Deportiva', 'Real Madrid Castilla', 'Castellón', 'Ponferradina', 'Vecindario', 'Granada 74', 'Sevilla Atlético', 'Alicante', 'Cartagena', 'Real Unión', 'Villarreal B', 'Barça Atlètic', 'Alcorcón', 'Alcoyano', 'Guadalajara', 'Sabadell', 'Mirandés', 'Lugo', 'Llagostera', 'Bilbao Athletic', 'Reus', 'UCAM Murcia', 'Cultural Leonesa', 'Extremadura UD', 'Rayo Majadahonda', 'Fuenlabrada', 'Logroñés', 'Ibiza', 'Real Sociedad B', 'Amorebieta', 'Andorra', 'Eldense'
-    ].sort(),
-    "Premier League": [
-        'Charlton', 'Manchester City', 'Chelsea', 'West Ham', 'Coventry', 'Middlesbrough', 'Derby', 'Southampton', 'Leeds', 'Everton', 'Leicester', 'Aston Villa', 'Liverpool', 'Bradford', 'Sunderland', 'Arsenal', 'Tottenham', 'Ipswich', 'Manchester United', 'Newcastle', 'Blackburn', 'Bolton', 'Fulham', 'West Brom', 'Birmingham', 'Wolves', 'Portsmouth', 'Norwich', 'Crystal Palace', 'Wigan', 'Watford', 'Reading', 'Sheffield', 'Stoke', 'Hull', 'Burnley', 'Blackpool', 'QPR', 'Swansea', 'Cardiff', 'Bournemouth', 'Brighton', 'Huddersfield', 'Brentford', 'Nottingham Forest', 'Luton'
-    ].sort(),
-    "Serie A": [
-        'Bari', 'Verona', 'Napoli', 'Juventus', 'Atalanta', 'Lazio', 'Milan', 'Vicenza', 'Parma', 'Fiorentina', 'Perugia', 'Lecce', 'Reggina', 'Inter', 'Roma', 'Bologna', 'Udinese', 'Brescia', 'Chievo', 'Venezia', 'Piacenza', 'Torino', 'Como', 'Empoli', 'Modena', 'Sampdoria', 'Siena', 'Ancona', 'Livorno', 'Cagliari', 'Palermo', 'Messina', 'Ascoli', 'Treviso', 'Catania', 'Genoa', 'Cesena', 'Novara', 'Pescara', 'Sassuolo', 'Frosinone', 'Carpi', 'Crotone', 'SPAL', 'Benevento', 'Spezia', 'Salernitana', 'Monza', 'Cremonese'
-    ].sort(),
-    "Bundesliga": [
-        'Dortmund', 'Hansa Rostock', 'Bayern München', 'Hertha', 'Freiburg', 'Stuttgart', 'Hamburger', '1860 München', 'Kaiserslautern', 'Bochum', 'Leverkusen', 'Wolfsburg', 'Werder Bremen', 'Energie Cottbus', 'Eintracht Frankfurt', 'Unterhaching', 'Schalke', 'Köln', 'Nürnberg', 'Mönchengladbach', 'St. Pauli', 'Arminia', 'Hannover', 'Mainz', 'Duisburg', 'Aachen', 'Karlsruher', 'Hoffenheim', 'Augsburg', 'Fortuna Düsseldorf', 'Greuther Fürth', 'Eintracht Braunschweig', 'Paderborn', 'Darmstadt', 'Ingolstadt', 'RB Leipzig', 'Union Berlin', 'Heidenheim', 'Holstein Kiel'
-    ].sort(),
-    "Ligue 1": [
-        'Marseille', 'Troyes', 'PSG', 'Strasbourg', 'Auxerre', 'Sedan', 'Bordeaux', 'Metz', 'Guingamp', 'Saint-Étienne', 'Lille', 'Monaco', 'Olympique Lyonnais', 'Stade Rennais', 'Nantes', 'Lens', 'Toulouse', 'Bastia', 'Lorient', 'Sochaux', 'Montpellier', 'Nice', 'Le Havre', 'Ajaccio', 'Le Mans', 'Caen', 'Istres', 'Nancy', 'Valenciennes', 'Grenoble', 'Boulogne', 'Arles-Avignon', 'Stade Brestois', 'Evian', 'Dijon', 'Reims', 'Angers', 'Gazélec Ajaccio', 'Amiens', 'Nîmes', 'Clermont'
-    ].sort()
-}
-const teamOptions = computed(() => {
-    return league.value ? leagueTeams[league.value] : []
-})
 
 const loadData = async () => {
     if (!league.value || !team.value) return
@@ -91,7 +42,7 @@ const loadData = async () => {
         showMessage.value = true
     }, 10000)
 
-    if (league.value == "Serie A" || league.value == "Ligue 1") {
+    if (specialLeagues.includes(league.value)) {
         columns = ref([
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
@@ -139,39 +90,12 @@ const loadData = async () => {
     rows.value = res.data
 }
 
-watch(league, () => { // borra la selección del segundo botón si cambia la del primero
+watch(league, () => {
     team.value = null
 }) 
 
 </script>
 
 <style>
-
-.buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-.data-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-
-.stats-table, .stats-table th, .stats-table td {
-    border-color: #c2c2c2;
-}
-
-.stats-table {
-    border-radius: 10px;
-    max-width: 90%;
-    font-feature-settings: "tnum";
-}
 
 </style>

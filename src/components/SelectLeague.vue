@@ -1,9 +1,9 @@
 <template>
-    <q-select outlined rounded label="League" :options="leagueOptions" bg-color="white" dense color="secondary" style="width: 170px;">
+    <q-select outlined rounded label="League" :options="options" bg-color="white" dense color="secondary" style="width: 170px;">
         <template v-slot:option="scope">
             <q-item v-bind="scope.itemProps">
                 <div style="display: flex; align-items: center; gap: 8px">
-                    <img :src="`icons/flags/${leagueCountries[scope.opt]}.png`" width="16px"/>
+                    <img :src="`icons/flags/${leagueCountry[scope.opt]}.png`" width="16px"/>
                     {{ scope.opt}}
                 </div>
             </q-item>
@@ -16,15 +16,11 @@
 
 <script setup>
 
-const leagueCountries = {
-    "LaLiga": "Spain",
-    "LaLiga2": "Spain",
-    "Premier League": "England",
-    "Serie A": "Italy",
-    "Bundesliga": "Germany",
-    "Ligue 1": "France"
-}
-const leagueOptions = ["LaLiga", "LaLiga2", "Premier League", "Serie A", "Bundesliga", "Ligue 1"]
+import { inject } from 'vue'
+
+const leagueCountry = inject('leagueCountry')
+
+const options = Object.keys(leagueCountry)
 
 </script>
 
