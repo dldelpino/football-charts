@@ -1,5 +1,5 @@
 <template>
-    <q-input v-model.number="number" outlined rounded bg-color="white" dense color="secondary" style="width: 110px;">
+    <q-input v-model.number="number" outlined rounded bg-color="white" dense color="secondary" style="width: 102px;">
         <template v-slot:append>
             <q-btn round dense flat icon="remove" size="10px" @mousedown="decreaseNumber" @mouseup="clear" @mouseleave="clear"/>
             <q-btn round dense flat icon="add" size="10px" @mousedown="increaseNumber" @mouseup="clear" @mouseleave="clear"/>

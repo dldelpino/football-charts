@@ -5,6 +5,22 @@ import { boot } from 'quasar/wrappers'
 
 export default boot(({ app }) => {
 
+    const tableLegend = [
+        {key: 0, label: "Champions League", color: "#1f65b8"},
+        {key: 1, label: "Champions League qualifiers", color: "#3393cb"},
+        {key: 2, label: "Europa League", color: "#ef710b"},
+        {key: 3, label: "Europa League qualifiers", color: "#ffa80b"},
+        {key: 4, label: "Conference League", color: "#00c458"},
+        {key: 5, label: "Conference League qualifiers", color: "#00c458"},
+        {key: 6, label: "Intertoto", color: "#7a54bc"},
+        {key: 7, label: "Relegation", color: "#bf2a2a"}, // si cambio el color, cambiarlo también en ChartTable.vue
+        {key: 8, label: "Relegation play-offs", color: "#d67373"},
+        {key: 9, label: "Promotion", color: "#00c458"},
+        {key: 10, label: "Promotion play-offs", color: "#00ef6b"},
+        {key: 11, label: "Europa League", color: "#ef710b"}, // y descenso
+        {key: 12, label: "Europa League qualifiers", color: "#ffa80b"}, // y descenso
+    ]
+
     const leagueCountry = {
         "LaLiga": "Spain",
         "LaLiga2": "Spain",
@@ -50,4 +66,5 @@ export default boot(({ app }) => {
     app.provide('leagueTeams', leagueTeams)
     app.provide('leaguePositions', leaguePositions)
     app.provide('specialLeagues', specialLeagues)
+    app.provide('tableLegend', tableLegend)
 })

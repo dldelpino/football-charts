@@ -1,7 +1,7 @@
 <template>
     <div class="buttons-container">
         <SelectLeague v-model="league"/>
-        <SelectNumber v-model.number="position" :disable="!league" label="Pos."/>
+        <SelectNumber v-model.number="position" :disable="!league" label="#"/>
         <ShowResults @click="loadData"/>
     </div>
     <div class="data-container">

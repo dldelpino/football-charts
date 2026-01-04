@@ -3,19 +3,19 @@
     <div class="buttons-container">
         <SelectLeague v-model="league"/>
         <SelectNumber v-model.number="matchesPlayed" :disable="!league" label="MP"/>
-        <SelectNumber v-model.number="points" :disable="!matchesPlayed" label="Pts."/>
+        <SelectNumber v-model.number="points" :disable="!matchesPlayed" style="width: 122px;" label="Points"/>
         <ShowResults @click="loadData"/>
     </div>
     <div class="data-container">
         <LoadingSpinner v-if="loading"/>
         <LoadingMessage :class="{visible: showMessage}"/>
-        <ChartTable :rows="rows" :columns="columns" v-if="rows.length && !loading"/>
+        <ChartTable :rows="rows" :columns="columns" :legend="activeTableLegend" v-if="rows.length && !loading"/>
     </div>
 </template>
 
 <script setup>
 
-import { inject, ref, watch } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 import axios from 'axios'
 
 import ChartTable from 'src/components/ChartTable.vue'
@@ -35,6 +35,7 @@ const maxPoints = ref(null)
 
 const leaguePositions = inject('leaguePositions')
 const specialLeagues = inject('specialLeagues')
+const tableLegend = inject('tableLegend')
 
 const rows = ref([])
 let columns
@@ -54,6 +55,7 @@ const loadData = async () => {
 
     if (specialLeagues.includes(league.value)) {
         columns = ref([
+            {name: "status", field: "status", label: "", sortable: false, style: "width: 8px; padding: 0", headerStyle: "width: 8px; padding: 0"},
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
             {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
@@ -72,6 +74,7 @@ const loadData = async () => {
     }
     else {
         columns = ref([
+            {name: "status", field: "status", label: "", sortable: false, style: "width: 8px; padding: 0", headerStyle: "width: 8px; padding: 0"},
             {name: "season", field: "season", label: "Season", sortable: true},
             {name: "position", field: "position", label: "#", sortable: true},
             {name: "team", field: "team", label: "Team", sortable: true, align: "left", style: "width: 210px"},
@@ -132,6 +135,12 @@ watch(points, (newPoints) => {
     if (newPoints > maxPoints.value) points.value = maxPoints.value
     else if (!(newPoints == null) && newPoints < 0) points.value = 0
 })
+
+const activeTableLegend = computed(() => 
+    tableLegend.filter(item => 
+        rows.value.some(row => row.status == item.key)
+    )
+)
 
 </script>
 
