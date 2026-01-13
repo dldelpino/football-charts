@@ -20,7 +20,7 @@
                     <div :style="{backgroundColor: item.color, width: '10px', height: '10px', borderRadius: '2px'}"></div>
                     {{ item.label }}
                 </div>
-                <div v-if="filteredLegend.some(item => item.key == 11 || item.key == 12)" class="flex items-center" style="gap: 6px">
+                <div v-if="props.legend.some(item => item.key == 11 || item.key == 12)" class="flex items-center" style="gap: 6px">
                     <div :style="{backgroundColor: '#bf2a2a', width: '10px', height: '10px', borderRadius: '2px'}"></div>
                     Relegation
                 </div>
@@ -39,12 +39,21 @@ const props = defineProps({
 
 const filteredLegend = computed(() => 
     props.legend.filter(item => {
-        if (props.legend.some(otherItem => otherItem.key == 11) && (item.key == 2 || item.key == 7)) 
+        if ((props.legend.some(otherItem => otherItem.key == 11) || props.legend.some(otherItem => otherItem.key == 12)) && (item.key == 10)) // si hay key = 11 o key = 12, me cargo key = 10
             return false
-        else if (props.legend.some(otherItem => otherItem.key == 12) && (item.key == 3 || item.key == 7)) 
+        else if (props.legend.some(otherItem => otherItem.key == 2) && (item.key == 11)) // si hay key = 2 y key = 11, me cargo key = 11
+            return false
+        else if (props.legend.some(otherItem => otherItem.key == 3) && (item.key == 12)) // si hay key = 3 y key = 12, me cargo key = 12
             return false
         else
             return true
+    }).map(item => {
+        if (item.key == 11)
+            return {...item, key: 2} // key: 2 sobrescribe a key: 11
+        else if (item.key == 12)
+            return {...item, key: 3}
+        else
+            return item
     })
 )
 

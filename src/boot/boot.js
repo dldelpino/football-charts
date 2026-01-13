@@ -13,10 +13,10 @@ export default boot(({ app }) => {
         {key: 4, label: "Conference League", color: "#2DB443"},
         {key: 5, label: "Conference League qualifiers", color: "#2DB443"},
         {key: 6, label: "Intertoto", color: "#909090"},
-        {key: 7, label: "Relegation", color: "#A52222"}, // si cambio el color, cambiarlo también en ChartTable.vue
-        {key: 8, label: "Relegation play-offs", color: "#D94545"},
-        {key: 9, label: "Promotion", color: "#2DB443"},
-        {key: 10, label: "Promotion play-offs", color: "#5CD670"},
+        {key: 7, label: "Promotion", color: "#2DB443"},
+        {key: 8, label: "Promotion play-offs", color: "#5CD670"},
+        {key: 9, label: "Relegation play-offs", color: "#D94545"},
+        {key: 10, label: "Relegation", color: "#A52222"}, // si cambio el color, cambiarlo también en ChartTable.vue
         {key: 11, label: "Europa League", color: "#F77F00"}, // y descenso
         {key: 12, label: "Europa League qualifiers", color: "#FF9C33"}, // y descenso
     ]
