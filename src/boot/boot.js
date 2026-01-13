@@ -6,19 +6,19 @@ import { boot } from 'quasar/wrappers'
 export default boot(({ app }) => {
 
     const tableLegend = [
-        {key: 0, label: "Champions League", color: "#1f65b8"},
-        {key: 1, label: "Champions League qualifiers", color: "#3393cb"},
-        {key: 2, label: "Europa League", color: "#ef710b"},
-        {key: 3, label: "Europa League qualifiers", color: "#ffa80b"},
-        {key: 4, label: "Conference League", color: "#00c458"},
-        {key: 5, label: "Conference League qualifiers", color: "#00c458"},
-        {key: 6, label: "Intertoto", color: "#7a54bc"},
-        {key: 7, label: "Relegation", color: "#bf2a2a"}, // si cambio el color, cambiarlo también en ChartTable.vue
-        {key: 8, label: "Relegation play-offs", color: "#d67373"},
-        {key: 9, label: "Promotion", color: "#00c458"},
-        {key: 10, label: "Promotion play-offs", color: "#00ef6b"},
-        {key: 11, label: "Europa League", color: "#ef710b"}, // y descenso
-        {key: 12, label: "Europa League qualifiers", color: "#ffa80b"}, // y descenso
+        {key: 0, label: "Champions League", color: "#2B3C9C"},
+        {key: 1, label: "Champions League qualifiers", color: "#4F62CF"},
+        {key: 2, label: "Europa League", color: "#F77F00"},
+        {key: 3, label: "Europa League qualifiers", color: "#FF9C33"},
+        {key: 4, label: "Conference League", color: "#2DB443"},
+        {key: 5, label: "Conference League qualifiers", color: "#2DB443"},
+        {key: 6, label: "Intertoto", color: "#909090"},
+        {key: 7, label: "Relegation", color: "#A52222"}, // si cambio el color, cambiarlo también en ChartTable.vue
+        {key: 8, label: "Relegation play-offs", color: "#D94545"},
+        {key: 9, label: "Promotion", color: "#2DB443"},
+        {key: 10, label: "Promotion play-offs", color: "#5CD670"},
+        {key: 11, label: "Europa League", color: "#F77F00"}, // y descenso
+        {key: 12, label: "Europa League qualifiers", color: "#FF9C33"}, // y descenso
     ]
 
     const leagueCountry = {
