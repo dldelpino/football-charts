@@ -24,13 +24,14 @@
             <span @click="$router.push('/')" class="cursor-pointer">Football Charts</span>
         </q-item-label>
         <template v-for="(value, key, index) in sections" :key="index">
-        <q-item-label header class="drawer-header">{{ key }}</q-item-label>
+        <q-expansion-item :label="key" switch-toggle-side default-opened dense class="drawer-header">
           <template v-for="(page, index) in sections[key]" :key="index">
             <q-btn flat no-caps :class="isActive(page) ? 'active-drawer-button' : 'drawer-button' " :to="'/' + toKebabCase(page)" align="left"> <!-- no sé por qué align sale en rojo -->
               <q-icon :name="`img:icons/${toKebabCase(key)}.png`" :class="isActive(page) ? 'active-drawer-icon' : 'drawer-icon' "/>
               {{ page }}
             </q-btn>
           </template>
+        </q-expansion-item>
         </template>
       </q-list>
       <div style="margin-left: 20px; margin-bottom: 20px">
@@ -131,7 +132,17 @@ html {
 .drawer-header {
   font-size: 13px;
   font-weight: 700;
+  margin-top: 10px;
   color: rgb(220, 220, 220);
+}
+
+.drawer-header .q-item__section--side { /* modificar el margen del switch toggle en la lista desplegable de las secciones */
+  padding-right: 5px;
+  min-width: auto
+}
+
+.drawer-header .q-expansion-item__toggle-icon { /* modificar el tamaño del switch toggle en la lista desplegable de las secciones */
+  font-size: 20px
 }
 
 .drawer-icon {
@@ -153,7 +164,7 @@ html {
   font-weight: 500;
   border-radius: 10px;
   margin-left: 15px;
-  margin-bottom: 15px;
+  margin-top: 10px;
   color: rgb(220, 220, 220);
   width: 89%;
 }
@@ -162,7 +173,7 @@ html {
   font-weight: 500;
   border-radius: 10px;
   margin-left: 15px;
-  margin-bottom: 15px;
+  margin-top: 10px;
   color: rgb(150, 220, 150);
   width: 89%;
 }
