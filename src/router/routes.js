@@ -82,6 +82,14 @@ const routes = [
           description: 'Number of times that teams have been relegated from a given league.'
         }
       },
+      { 
+        path: 'team-streaks', 
+        component: () => import('src/pages/other/TeamStreaks.vue'),
+        meta: {
+          title: 'Team Streaks',
+          description: 'Analyse different types of streaks that a team has achieved in a given league.'
+        }
+      },
     ],
   },
   // Always leave this as last one,

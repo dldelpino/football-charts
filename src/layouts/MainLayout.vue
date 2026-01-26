@@ -58,6 +58,7 @@ const sections = {
   'TABLES': ['Average Stats', 'Position History', 'Promoted Teams', 'Season Standings', 'Team Trajectory', 'Threshold Standings'],
   'PIE CHARTS': ['Position Frequency'],
   'BAR CHARTS': ['Promotion Frequency', 'Relegation Frequency'],
+  'OTHER': ['Team Streaks']
 }
 
 const leftDrawerOpen = ref(false)
@@ -200,7 +201,7 @@ html {
 }
 
 .bottom-icon:hover {
-  transform: scale(1.25);
+  transform: scale(1.15);
 }
 
 </style>
