@@ -51,7 +51,7 @@ const loadData = async () => {
     error.value = false
     const timeout = setTimeout(() => {
         showMessage.value = true
-    }, 20000)
+    }, 15000)
 
     if (specialLeagues.includes(league.value)) {
         columns = ref([

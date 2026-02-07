@@ -8,6 +8,11 @@
         </template>
 
         <template v-slot:body-cell-team="tableProps">
+            <q-icon name="info" color="primary" v-if="tableProps.row.message" size="20px" style="position: absolute; left: -40px; margin-top: 13px">
+                <q-tooltip>
+                    {{tableProps.row.message}}
+                </q-tooltip>
+            </q-icon>
             <q-td :props="tableProps" style="align-items: center" class="row">
                 <img :src="tableProps.row.logo" style="width: 16px; margin-right: 8px"/>
                 {{ tableProps.row.team }}

@@ -42,9 +42,9 @@ function drawChart() {
     }
 
     let positionOrdinal
-    if (props.position == 1) {
+    if (props.position == 1 || props.position == 21) {
         positionOrdinal = 'st'
-    } else if (props.position == 2) {
+    } else if (props.position == 2 || props.position == 22) {
         positionOrdinal = 'nd'
     } else if (props.position == 3) {
         positionOrdinal = 'rd'
