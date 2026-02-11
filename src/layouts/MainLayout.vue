@@ -3,7 +3,7 @@
     <q-page-container>
         <div class="bg-grey-3 header">
           <div>
-            <div style="font-size: 21px; font-weight: bold;">
+            <div style="font-size: 21px; font-weight: bold">
               {{ pageTitle }}
             </div>
             <div style="color: dimgray">
